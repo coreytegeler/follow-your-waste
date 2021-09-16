@@ -96,7 +96,7 @@
 	bottom: 45%;
 }
 
-$bins: ("paper", "mgp", "landfill");
+$bins: ("paper", "mgp", "landfill", "organics");
 
 @each $bin, $i in $bins {
 	$i: index($bins, $bin);
@@ -231,6 +231,8 @@ $items: (
 	"plastic-bottle": 6,
 	"soda-can": 5,
 	"toothpaste": 10,
+	"soiled-paper": 10,
+	"banana": 17,
 );
 
 @each $name, $scale in $items {

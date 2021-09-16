@@ -5,9 +5,10 @@ import Draggabilly from "draggabilly";
 import Packery from "packery";
 
 const initSite = () => {
-	let itemsWrapPackery, currStreamObj, currSceneObj, streamIntrod;
+	let itemsWrapPackery, streamIntrod;
 	const body = document.querySelector("body"),
 				docElem = document.documentElement,
+				volTog = document.querySelector("#volume-toggle"),
 				fullTog = document.querySelector("#full-toggle"),
 				helpTog = document.querySelector("#help-toggle"),
 				restartBttn = document.querySelector("#restart-button"),
@@ -22,6 +23,10 @@ const initSite = () => {
 				streamsView = document.querySelector("#streams-view"),
 				streamElems = document.querySelectorAll(".stream"),
 				alertsView = document.querySelector("#alerts-view"),
+				globals = {
+					scene: null,
+					stream: null
+				},
 				itemsObj = {},
 				scenesArr = [],
 				streamsArr = [],
@@ -30,7 +35,8 @@ const initSite = () => {
 					paper: "Paper",
 					metal: "Metal",
 					glass: "Glass",
-					plastic: "Plastic"
+					plastic: "Plastic",
+					organics: "Organics"
 				},
 				fadeInDur = {
 					voice: 50,
@@ -59,7 +65,9 @@ const initSite = () => {
 
 	document.onkeydown = (e) => {
 		e = e || window.event;
-		const keyCode = e.keyCode ? e.keyCode : e.which;
+		const keyCode = e.keyCode ? e.keyCode : e.which,
+					currStreamObj = globals.stream,
+					currSceneObj = globals.scene;
 		let currEnviron, currVoiceAudioElem, currEnvironAudioElem;
 		switch (keyCode) {
 			case 27:
@@ -109,13 +117,9 @@ const initSite = () => {
 					currVoiceAudioElem = currStreamObj.elem.querySelector(".caption.show audio");
 					currEnvironAudioElem = document.querySelector(`audio[data-environ="${currEnviron}"]`);
 					body.classList.toggle("mute");
-					if(body.classList.contains("mute")) {
-						muteAudio(currVoiceAudioElem);
-						muteAudio(currEnvironAudioElem);
-					} else {
-						unmuteAudio(currVoiceAudioElem);
-						unmuteAudio(currEnvironAudioElem);
-					}
+
+					toggleAudio(currVoiceAudioElem);
+					toggleAudio(currEnvironAudioElem);
 				}
 				break;
 			default:
@@ -140,6 +144,7 @@ const initSite = () => {
 			volume: 0
 		}, 100, (e) => {
 			elem.pause();
+			elem.currentTime = 0;
 		});
 	};
 
@@ -148,10 +153,7 @@ const initSite = () => {
 		$(elem).animate({
 			volume: 0
 		}, fadeOutDur[type]);
-		const volBttns = document.querySelectorAll("button.volume");
-		volBttns.forEach( (volBttn) => {
-			volBttn.setAttribute("aria-pressed", true);
-		});
+		volTog.setAttribute("aria-pressed", false);
 	};
 
 	const unmuteAudio = (elem) => {
@@ -160,26 +162,35 @@ const initSite = () => {
 		$(elem).animate({
 			volume: volMax[type]
 		}, fadeInDur[type]);
-		const volBttns = document.querySelectorAll("button.volume");
-		volBttns.forEach( (volBttn) => {
-			volBttn.setAttribute("aria-pressed", false);
-		});
+		volTog.setAttribute("aria-pressed", false);
 	};
 
-	// const isMobile = () => {
-	// 	const styles = window.getComputedStyle(body);
-	// 	return [`"sm"`,`"md"`].includes(styles.content);
-	// }
-
-
-	const isIframe = (e) => {
-		try {
-			return window.self !== window.top;
-		} catch (e) {
-			return true;
+	const toggleAudio = (elem) => {
+		if(body.classList.contains("mute")) {
+			muteAudio(elem);
+		} else {
+			unmuteAudio(elem);
 		}
 	};
 
+	const toggleVolume = () => {
+		body.classList.toggle("mute");
+		const currSceneObj = globals.scene,
+					currAlertAudioElem = document.querySelector(".alert.show audio");
+
+		if(currSceneObj) {
+			const currVoiceAudioElem = currSceneObj.voiceover,
+						currEnvironAudioElem = currSceneObj.environ;
+
+			toggleAudio(currVoiceAudioElem);
+			toggleAudio(currEnvironAudioElem);
+		}
+		if(currAlertAudioElem) {
+			toggleAudio(currAlertAudioElem);
+		}
+
+		volTog.blur();
+	}
 
 	const toggleFullscreen = (e) => {
 		body.classList.toggle("full");
@@ -201,6 +212,14 @@ const initSite = () => {
 	const closeFullscreen = (e) => {
 		if(document.exitFullscreen && document.fullscreenElement) {
 			document.exitFullscreen();
+		}
+	};
+
+	const isIframe = (e) => {
+		try {
+			return window.self !== window.top;
+		} catch (e) {
+			return true;
 		}
 	};
 
@@ -246,9 +265,15 @@ const initSite = () => {
 
 	if(restartBttn) {
 		restartBttn.addEventListener("click", () => {
-			if(currStreamObj) {
-				currStreamObj.stopStreaming(false);
+			if(globals.stream) {
+				globals.stream.stopStreaming(false);
 			}
+		});
+	}
+
+	if(volTog) {
+		volTog.addEventListener("click", () => {
+			toggleVolume();
 		});
 	}
 
@@ -631,11 +656,10 @@ const initSite = () => {
 			this.slug = elem.dataset.slug;
 			this.scene = null;
 			this.scenes = {};
-			this.bin = ["metal","glass","plastic"].includes(this.slug) ? "mgp" : this.slug;
+			this.bin = ["metal","glass","plastic","organics"].includes(this.slug) ? "mgp" : this.slug;
 			this.scenesWrap = elem.querySelector(".scenes-wrap");
 			this.progress = elem.querySelector(".progress");
-			this.volBttn = elem.querySelector(".audio-button.volume");
-			this.playbackBttn = elem.querySelector(".audio-button.playback");
+			this.playbackBttn = elem.querySelector(".playback-toggle");
 			this.prevArrow = elem.querySelector(".arrow[data-dir='prev']");
 			this.nextArrow = elem.querySelector(".arrow[data-dir='next']");
 
@@ -646,23 +670,8 @@ const initSite = () => {
 				self.goToNextScene();
 			};
 
-			this.volBttn.onclick = () => {
-				const currSceneObj = self.scene,
-							currVoiceAudioElem = currSceneObj.voiceover,
-							currEnvironAudioElem = currSceneObj.environ;
-				body.classList.toggle("mute");
-				if(body.classList.contains("mute")) {
-					muteAudio(currVoiceAudioElem);
-					muteAudio(currEnvironAudioElem);
-				} else {
-					unmuteAudio(currVoiceAudioElem);
-					unmuteAudio(currEnvironAudioElem);
-				}
-				self.volBttn.blur();
-			};
-
 			this.playbackBttn.onclick = (e) => {
-				const currSceneObj = self.scene,
+				const currSceneObj = globals.scene,
 							currVoiceAudioElem = currSceneObj.voiceover,
 							currEnvironAudioElem = currSceneObj.environ;
 				body.classList.toggle("playing");
@@ -738,7 +747,7 @@ const initSite = () => {
 						currStreamElem = body.querySelector(".stream.show"),
 						currSceneElem = body.querySelector(".scene.show");
 
-			currStreamObj = this;
+			globals.stream = this;
 
 			if(currStreamElem) {
 				currStreamElem.classList.remove("show");
@@ -770,19 +779,18 @@ const initSite = () => {
 					muteAudio(self.scene.environ);
 					toggleSelectElems(true);
 					showView("select");
-					currStreamObj = null;
+					globals.stream = null;
 				});
 			} else {
 				muteAudio(this.scene.environ);
 				toggleSelectElems(true);
 				showView("select");
-				currStreamObj = null;
+				globals.stream = null;
 			}
 		}
 
 		goToNextScene() {
-			const currSceneObj = this.scene,
-						currSceneSlug = currSceneObj.slug,
+			const currSceneSlug = globals.scene.slug,
 						currSceneElem = this.elem.querySelector(`.scene[data-scene="${currSceneSlug}"]`),
 						nextSceneElem = currSceneElem.nextSibling;
 
@@ -797,7 +805,7 @@ const initSite = () => {
 
 		goToPrevScene() {
 			if(body.id !== "streams") return;
-			const currSceneObj = this.scene,
+			const currSceneObj = globals.scene,
 						currSceneSlug = currSceneObj.slug,
 						currSceneElem = this.elem.querySelector(`.scene[data-scene="${currSceneSlug}"]`),
 						prevSceneElem = currSceneElem.previousSibling;
@@ -876,6 +884,7 @@ const initSite = () => {
 			}
 
 			this.scene = nextSceneObj;
+			globals.scene = nextSceneObj;
 			nextSceneObj.prepareScene();
 
 			if(nextVoiceAudioElem) {
@@ -907,7 +916,6 @@ const initSite = () => {
 			this.elem = sceneElem;
 			this.slug = sceneElem.dataset.scene;
 			this.stream = streamObj;
-			// this.color = sceneElem.dataset.color;
 
 			this.tick = streamObj.elem.querySelector(
 				`.tick[data-scene="${this.slug}"]`

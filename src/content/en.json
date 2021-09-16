@@ -247,6 +247,16 @@
       "slug": "toothpaste",
       "label": "Toothpaste",
       "tooltip": "Not all bathroom items are recyclable—know before you throw!"
+    },
+    {
+      "slug": "banana",
+      "label": "Banana peel",
+      "tooltip": "Bananas are great sources of calcium, magnesium, sulfur, phosphates, potassium and sodium. Composting banana peels helps add those healthy nutrients to the soil!"
+    },
+    {
+      "slug": "soiled-paper",
+      "label": "Food-soiled paper",
+      "tooltip": "Food isn’t the only thing that can go in the brown compost binbin! Dirty paper napkins, plates, and towels are part of the dry, carbon-rich “brown” materials needed to make healthy compost."
     }
   ],
   "landfill": [
@@ -344,6 +354,85 @@
       "caption": "Finally, the train leaves and the containers of waste are either taken to a waste-to-energy facility to make electricity or dumped at landfill.",
       "vocab1": null,
       "fact1": "In the United States, landfills are the third largest contributor of methane gas which is 34 times the greenhouse effect of carbon dioxide. Want to help combat the effect of climate change? Avoid the trash bin and try to reduce, reuse, or recycle!",
+      "vocab2": null,
+      "fact2": null,
+      "vocab3": null,
+      "fact3": null
+    }
+  ],
+  "organics": [
+    {
+      "slug": "garage-organics",
+      "label": "Garage",
+      "caption": "Hi, I am Civilian Employee Kevin and I work citywide. A Sanitation Worker starts off their shift by clocking-in at their local garage then sets out to pick up your food and yard waste that you set out at the curb.",
+      "vocab1": null,
+      "fact1": null,
+      "vocab2": null,
+      "fact2": null,
+      "vocab3": null,
+      "fact3": null
+    },
+    {
+      "slug": "curbside-organics",
+      "label": "Curbside Pickup",
+      "caption": "Compostable waste—food waste, leaves, and branches—is collected by Sanitation Workers from schools and homes. We use the same trucks for curbside compost collection that we use for regular refuse or recyclables.",
+      "vocab1": null,
+      "fact1": null,
+      "vocab2": null,
+      "fact2": null,
+      "vocab3": null,
+      "fact3": null
+    },
+    {
+      "slug": "3-organics",
+      "label": "N/A",
+      "caption": "This food and yard waste from across New York City gets taken to regional composting facilities where it is made into finished compost.",
+      "vocab1": null,
+      "fact1": "Did you know that nearly ⅓ of everything we throw away in NYC is compostable? That means ⅓ of all of our waste can be converted into a natural soil amendment or be used to create renewable energy!",
+      "vocab2": null,
+      "fact2": null,
+      "vocab3": null,
+      "fact3": null
+    },
+    {
+      "slug": "4-organics",
+      "label": "N/A",
+      "caption": "Special teams of experts transform food scraps, leaves, branches, and food soiled paper into compost through a special process. First, they mix together the correct balance of food scraps, yard waste, and other organic matter. The right balance of “greens” (nitrogen-rich items like food scrap) and “browns” (carbon-rich items like dried leaves or wood chips) helps to make sure that all of the material will fully decompose with the right balance of nutrients.",
+      "vocab1": null,
+      "fact1": "What is composting? Just like food gets broken down in your stomach into nutrients and minerals, organic waste is broken down through the work of many organisms and chemistry!",
+      "vocab2": null,
+      "fact2": null,
+      "vocab3": null,
+      "fact3": null
+    },
+    {
+      "slug": "5-organics",
+      "label": "N/A",
+      "caption": "Over the course of a few weeks, the food scraps, leaves, and other materials break down into a material called compost. A lot of heat is created by the organisms during this process of decomposition. This heat destroys weed seeds and pathogens.",
+      "vocab1": null,
+      "fact1": "Industrial compost piles can reach up to 160°F! You don’t want the pile too hot for too long or it will destroy the microorganisms eating all the veggies!",
+      "vocab2": null,
+      "fact2": null,
+      "vocab3": null,
+      "fact3": null
+    },
+    {
+      "slug": "6-organics",
+      "label": "N/A",
+      "caption": "Eventually, the food and leaves will transform into a pile of something that looks like dark, crumbly soil. At this stage, the compost needs to “cure” to make sure that everything in the pile has fully decomposed.",
+      "vocab1": null,
+      "fact1": "Despite its appearance, compost is not the same thing as soil! Rather, compost is something called a soil amendment -- a natural fertilizer full of nutrients from broken down plants. Compost gets added to soil to help plants grow healthier and stronger!",
+      "vocab2": null,
+      "fact2": null,
+      "vocab3": null,
+      "fact3": null
+    },
+    {
+      "slug": "7-organics",
+      "label": "N/A",
+      "caption": "Congratulations—after it has fully cured, your organic waste has been transformed into nutrient-rich compost! The finished product then get s put into bags and distributed to schools, public parks, urban farmers, community gardeners, and even NYC residents, who can use the compost to grow their own fruits and veggies at home!",
+      "vocab1": null,
+      "fact1": null,
       "vocab2": null,
       "fact2": null,
       "vocab3": null,
@@ -698,7 +787,7 @@
     },
     {
       "slug": "sorting",
-      "label": "Sorting System",
+      "label": "Sorting",
       "caption": "From the tipping floor, the recycling is pushed into the sorting system by a front-end loader. Alternatively––depending what equipment is available––your recyclables are picked up and dropped into the sorting system by a giant crane, known as an excavator.",
       "vocab1": "front-end loader",
       "fact1": "Front-end loaders are big vehicles with a scoop in front for lifting and loading loose material.",
@@ -767,7 +856,7 @@
     {
       "slug": "garage-plastic",
       "label": "Garage",
-      "caption": "Hi, I am Sanitation Worker Katia from Brooklyn.  We start off our shift by clocking-in at our local garage then set out to pick up your household trash or recyclables.",
+      "caption": "Hi, I am Sanitation Worker Katia from Brooklyn. We start off our shift by clocking-in at our local garage then set out to pick up your household trash or recyclables.",
       "vocab1": null,
       "fact1": "In our Brooklyn 15 Annex garage, there is a mural painted by a Sanitation Worker which pays homage to American History, with detailed illustrations of the American Flag and a Bald Eagle!",
       "vocab2": null,
@@ -799,7 +888,7 @@
     },
     {
       "slug": "sorting",
-      "label": "Sorting System",
+      "label": "Sorting",
       "caption": "From the tipping floor, the recycling is pushed into the sorting system by a front-end loader. Alternatively––depending what equipment is available––your recyclables are picked up and dropped into the sorting system by a giant crane, known as an excavator.",
       "vocab1": "front-end loader",
       "fact1": "Front-end loaders are big vehicles with a scoop in front for lifting and loading loose material.",

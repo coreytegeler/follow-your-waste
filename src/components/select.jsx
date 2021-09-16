@@ -3,8 +3,8 @@ import { withPrefix } from "gatsby";
 
 export default function Select({ text, data }) {
 	
-	const streams = ["landfill", "metal", "glass", "paper", "plastic"],
-				bins = ["paper", "mgp", "landfill"];
+	const streams = ["landfill", "metal", "glass", "paper", "plastic", "organics"],
+				bins = ["paper", "mgp", "landfill", "organics"];
 
 	return (
 		<div id="select-view" className="view" aria-hidden="true">

@@ -62,6 +62,21 @@ a {
 .label {
 	@include md-text;
 }
+
+.toggle {
+	transition: opacity 300ms $ease;
+	background-size: cover;
+	background-position: center top;
+	background-repeat: no-repeat;
+	opacity: .75;
+	&:hover,
+	&:focus {
+		opacity: 1;
+		cursor: pointer;
+		outline: none;
+	}
+}
+
 button.start {
 	background-color: $green;
 	color: white;
@@ -145,11 +160,6 @@ header#header {
 #help-toggle {
 	opacity: .75;
 	transition: opacity 300ms $ease;
-// 	height: 30px;
-// 	left: 15px;
-// 	background-image: url(../images/help.svg);
-// 	background-position: center top;
-// 	background-size: cover;
 	&:hover {
 		opacity: 1;
 		cursor: pointer;
@@ -158,9 +168,6 @@ header#header {
 		opacity: 0;
 		pointer-events: none;
 	}
-// 	body#streams.alerts & {
-// 		background-position-y: bottom;
-// 	}
 }
 
 #lang-switch {
@@ -220,17 +227,8 @@ header#header {
 	height: 20px;
 	position: relative;
 	top: 3px;
-	opacity: .75;
 	background-image: url(../images/full.svg);
-	background-position: top center;
-	background-size: cover;
-	transition: opacity 300ms $ease;
 	pointer-events: all;
-	&:hover, &:focus {
-		opacity: 1;
-		outline: none;
-		cursor: pointer;
-	}
 	@include md-width {
 		bottom: 210px;
 	}
@@ -239,6 +237,23 @@ header#header {
 	}
 	.full & {
 		background-position-y: bottom;
+	}
+}
+
+#volume-toggle {
+	width: 25px;
+	height: 25px;
+	position: relative;
+	top: 5px;
+	background-image: url(../images/volume.svg);
+	pointer-events: all;
+	body.mute & {
+		background-position-y: bottom;
+	}
+	@include md-width {
+		width: 40px;
+		height: 40px;
+		margin: auto 10px;
 	}
 }
 

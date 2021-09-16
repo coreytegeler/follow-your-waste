@@ -272,12 +272,12 @@ export default function Alerts({ text }) {
 							<div className="row">
 								<div className="col">
 									<div className="help-audio-buttons">
-										<div className="audio-button volume"></div>
-										<div className="audio-button playback"></div>
+										<div className="audio-button toggle volume"></div>
+										<div className="audio-button toggle volume"></div>
 									</div>
 									<div className="help-audio-buttons">
-										<div className="audio-button volume"></div>
-										<div className="audio-button playback"></div>
+										<div className="audio-button toggle playback"></div>
+										<div className="audio-button toggle playback"></div>
 									</div>
 								</div>
 								<div className="col">
@@ -341,7 +341,7 @@ export default function Alerts({ text }) {
 							</h3>
 							<a
 								className=""
-								href="https://www.sanitationfoundation.org/"
+								href="https://www.sanitationfoundation.org/meet-the-workers"
 								target="_blank"
 								rel="noreferrer"
 								role="menuitem">
@@ -349,7 +349,7 @@ export default function Alerts({ text }) {
 							</a>
 							<a
 								className=""
-								href="https://www.sanitationfoundation.org/"
+								href="https://www.sanitationfoundation.org/lesson-pans"
 								target="_blank"
 								rel="noreferrer"
 								role="menuitem">
@@ -357,7 +357,7 @@ export default function Alerts({ text }) {
 							</a>
 							<a
 								className=""
-								href="https://www.sanitationfoundation.org/"
+								href="https://www.sanitationfoundation.org/follow-your-waste"
 								target="_blank"
 								rel="noreferrer"
 								role="menuitem">

@@ -55,6 +55,14 @@
     {
       "slug": "toothpaste",
       "stream": "landfill"
+    },
+    {
+      "slug": "banana",
+      "stream": "organics"
+    },
+    {
+      "slug": "soiled-paper",
+      "stream": "organics"
     }
   ],
   "landfill": [
@@ -129,6 +137,64 @@
       "animated": "true",
       "looped": "true",
       "environment": "traffic"
+    }
+  ],
+  "organics": [
+    {
+      "slug": "garage-organics",
+      "color": "blue",
+      "orientation": "width",
+      "animated": "false",
+      "looped": "false",
+      "environment": "traffic"
+    },
+    {
+      "slug": "curbside-organics",
+      "color": "teal",
+      "orientation": "width",
+      "animated": "false",
+      "looped": "false",
+      "environment": "traffic"
+    },
+    {
+      "slug": "3-organics",
+      "color": "blue",
+      "orientation": "width",
+      "animated": "false",
+      "looped": "false",
+      "environment": "facility"
+    },
+    {
+      "slug": "4-organics",
+      "color": "orange",
+      "orientation": "width",
+      "animated": "false",
+      "looped": "false",
+      "environment": "facility"
+    },
+    {
+      "slug": "5-organics",
+      "color": "lime",
+      "orientation": "width",
+      "animated": "false",
+      "looped": "false",
+      "environment": "facility"
+    },
+    {
+      "slug": "6-organics",
+      "color": "pink",
+      "orientation": "width",
+      "animated": "false",
+      "looped": "false",
+      "environment": "facility"
+    },
+    {
+      "slug": "7-organics",
+      "color": "yellow",
+      "orientation": "width",
+      "animated": "false",
+      "looped": "false",
+      "environment": "facility"
     }
   ],
   "paper": [

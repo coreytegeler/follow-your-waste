@@ -1,8 +1,7 @@
 import React from "react";
 import { withPrefix } from "gatsby";
 
-const bins = ["landfill", "mgp", "paper"],
-			streams = ["landfill", "metal", "glass", "paper", "plastic"],
+const streams = ["landfill", "metal", "glass", "paper", "plastic", "organics"],
 			environs = ["traffic", "facility", "water"];
 
 export default function Streams({ text, data }) {
@@ -20,7 +19,6 @@ export default function Streams({ text, data }) {
 						id="restart-button"
 						className="restart-button">
 						<div className="tooltip">
-							{/*<div className="tooltip-arrow small"></div>*/}
 							<div className="tooltip-inner">
 								Choose a new item
 							</div>
@@ -163,22 +161,11 @@ export default function Streams({ text, data }) {
 												})}
 											</div>
 
-											<div
-												role="menu"
-												className="audio-buttons"
-												aria-label={text.system.aria_audio_menu}>
-												<button
-													className="audio-button volume"
-													tabIndex={0}
-													aria-pressed={false}
-													aria-label={text.system.aria_volume}>
-												</button>
-												<button
-													className="audio-button playback"
-													tabIndex={0}
-													aria-label={text.system.aria_playback}>
-												</button>
-											</div>
+											<button
+												className="playback-toggle toggle"
+												tabIndex={0}
+												aria-label={text.system.aria_playback}>
+											</button>
 											
 										</div>
 									</div>

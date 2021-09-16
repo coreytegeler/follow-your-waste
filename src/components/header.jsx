@@ -33,7 +33,7 @@ export default function Header({ text, lang, langObjs }) {
 
 					<div
 						role="button"
-						className="header-item"
+						className="header-item toggle"
 						id="help-toggle"
 						tabIndex={0}
 						aria-pressed={false}>
@@ -85,7 +85,15 @@ export default function Header({ text, lang, langObjs }) {
 					</div>
 
 					<button
-						className="header-item tool-button"
+						className="header-item toggle"
+						id="volume-toggle"
+						tabIndex={0}
+						aria-label={text.system.aria_volume}
+						aria-pressed={false}>
+					</button>
+
+					<button
+						className="header-item toggle"
 						id="full-toggle"
 						tabIndex={0}
 						aria-label={text.system.aria_full_screen}

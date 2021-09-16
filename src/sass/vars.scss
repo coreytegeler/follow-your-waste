@@ -96,10 +96,10 @@ $darken: rgba(#2e2e2e, 0.9);
 }
 
 @mixin base-text {
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 1.3rem;
 	@include sm-width {
-		font-size: 14px;
+		font-size: 13px;
 		line-height: 1.5rem;
 	}
 }
