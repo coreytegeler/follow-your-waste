@@ -88,6 +88,8 @@ export default function Select({ text, data }) {
 							aria-hidden="true">
 							<p>
 								{text.system.select_intro}
+							</p>
+							<p>
 								{text.system.select_prompt_alt}
 							</p>
 						</div>

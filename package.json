@@ -9,8 +9,8 @@
     "url": "https://github.com/sanitationfoundation/follow-your-waste"
   },
   "scripts": {
-    "develop": "gatsby develop",
-    "develop-mobile": "gatsby develop -H 0.0.0.0 -p 8000",
+    "watch": "gatsby develop",
+    "watch-mobile": "gatsby develop -H 0.0.0.0 -p 8000",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public -b gh-pages",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",

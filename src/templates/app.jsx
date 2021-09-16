@@ -38,32 +38,27 @@ const App = ({ pageContext }) => {
 		es: esText,
 		zh: zhText
 	};
+
 	Object.keys(textObjs).forEach((key) => {
 		textObjs[key].system.forEach((textPair) => {
 			langObjs[key].text.system[textPair.slug] = textPair.text;
 		});
 	});
 
-	// Object.keys(langObjs).forEach((key) => {
-	// 	console.log(key, ":", langObjs[key]);
-	// });
-
 	const text = langObjs[lang].text;
 
 	return (
 		<div>
 			<Helmet
-				title={text.system.title}
+				title={`${text.system.title} — ${text.system.tagline}`}
 				bodyAttributes={{
 					id: "intro",
 					class: "loading",
 				}}
-				meta={[
-					{
-						name: text.system.title,
-						content: text.system.tagline
-					}
-				]}>
+				meta={[{
+					name: text.system.title,
+					content: text.system.tagline
+				}]}>
 			</Helmet>
 
 			<Header text={text} lang={lang} langObjs={langObjs} />
@@ -78,4 +73,5 @@ const App = ({ pageContext }) => {
 		</div>
 	);
 };
+
 export default App;

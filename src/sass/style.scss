@@ -140,24 +140,26 @@ header#header {
 		width: auto;
 		img {
 			width: auto;
-			max-height: 24px;
+			max-height: 50px;
 		}
 	}
 }
 
 #header-items {
 	display: flex;
-	align-items: baseline;
-	@include sm-width {
-		
+	align-items: flex-start;
+	> * {
+
 	}
 }
 .header-item {
-	margin-left: 30px;
+	margin-left: 10px;
 	pointer-events: all;
 }
 
 #help-toggle {
+	position: relative;
+	top: 1px;
 	opacity: .75;
 	transition: opacity 300ms $ease;
 	&:hover {
@@ -168,12 +170,19 @@ header#header {
 		opacity: 0;
 		pointer-events: none;
 	}
+	@include sm-width {
+		top: 5px;
+	}
 }
 
 #lang-switch {
 	// position: relative;
 	// top: -6px;
 	padding-left: 10px;
+	.option {
+		position: relative;
+    top: -1px;
+	}
 }
 .dropdown {
 	position: relative;
@@ -223,8 +232,8 @@ header#header {
 }
 
 #full-toggle {
-	width: 27px;
-	height: 20px;
+	width: 24px;
+	height: 18px;
 	position: relative;
 	top: 3px;
 	background-image: url(../images/full.svg);
@@ -241,19 +250,17 @@ header#header {
 }
 
 #volume-toggle {
-	width: 25px;
-	height: 25px;
-	position: relative;
-	top: 5px;
+	width: 24px;
+	height: 24px;
+	// position: relative;
+	// top: 5px;
 	background-image: url(../images/volume.svg);
 	pointer-events: all;
 	body.mute & {
 		background-position-y: bottom;
 	}
 	@include md-width {
-		width: 40px;
-		height: 40px;
-		margin: auto 10px;
+		margin: 0 10px;
 	}
 }
 

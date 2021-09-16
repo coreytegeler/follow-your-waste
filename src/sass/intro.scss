@@ -86,18 +86,19 @@
 	z-index: 1;
 	transform: translateX(-300px);
 	text-align: center;
-	// pointer-events: none;
 	background-image: url(../images/loading.png);
 	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;
 	user-select: none;
 	span {
+		width: 145px;
 		position: absolute;
-		left: 100px;
-    top: 45px;
+		left: 80px;
+    top: 48px;
 		color: black;
 		text-transform: lowercase;
+		text-align: center;
 		font-weight: bold;
 		@include lg-text;
 		animation: blinking 1s infinite;
