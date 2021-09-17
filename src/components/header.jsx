@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { withPrefix } from "gatsby";
 
-export default function Header({ text, lang, langObjs }) {
+export default function Header({ env, text, lang, langObjs }) {
 
 	const [langMenu, setLangMenu] = useState(false);
 
@@ -67,12 +67,18 @@ export default function Header({ text, lang, langObjs }) {
 							aria-labelledby="lang-switch-label">
 							{langKeys.map((langKey, i) => {
 								const langObj = langObjs[langKey];
+								let langUrl;
+								if(lang === "en") {
+									langUrl = langKey === "en" ? "" : langKey;
+								} else {
+									langUrl = langKey === "en" ? "../" : "../" + langKey;
+								}
 								return (
 									<div className="option" key={i}>
 										<a
 											role="menuitem"
 											lang={langKey}
-											href={`/${langKey === "en" ? "" : "../" + langKey}`}
+											href={langUrl}
 											title={langObj.long}
 											tabIndex={0}
 											aria-label={`Switch to ${langObj.long}`}>

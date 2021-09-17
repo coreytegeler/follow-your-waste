@@ -13,7 +13,7 @@ import Streams from "../components/streams.jsx";
 import Alerts from "../components/alerts.jsx";
 
 const App = ({ pageContext }) => {
-	const { lang } = pageContext;
+	const { lang, env } = pageContext;
 
 	const langObjs = {
 		en: {
@@ -61,7 +61,12 @@ const App = ({ pageContext }) => {
 				}]}>
 			</Helmet>
 
-			<Header text={text} lang={lang} langObjs={langObjs} />
+			<Header
+				env={env}
+				text={text}
+				lang={lang}
+				langObjs={langObjs}
+			/>
 
 			<main id="main">
 				<Intro text={text} />

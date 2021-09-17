@@ -5,6 +5,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
 			component: require.resolve("./src/templates/app.jsx"),
 			context: {
 				lang: lang,
+				env: process.env.NODE_ENV
 			},
 		});
 	});
