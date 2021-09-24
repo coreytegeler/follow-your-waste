@@ -77,13 +77,8 @@ export default function Header({ env, text, lang, langObjs }) {
 						<div role="menu"
 							aria-labelledby="lang-switch-label">
 							{langKeys.map((langKey, i) => {
-								const langObj = langObjs[langKey];
-								let langUrl;
-								if(lang === "en") {
-									langUrl = langKey === "en" ? "" : langKey;
-								} else {
-									langUrl = langKey === "en" ? "../" : "../" + langKey;
-								}
+								const langObj = langObjs[langKey],
+											langUrl = "/" + ( langKey === "en" ? "" : langKey );
 								return (
 									<div className="option" key={i}>
 										<a
