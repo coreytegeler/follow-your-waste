@@ -18,12 +18,12 @@ const App = ({ pageContext }) => {
 	const langObjs = {
 		en: {
 			long: "English",
-			short: "eng",
+			short: "english",
 			text: enText
 		},
 		es: {
 			long: "Español",
-			short: "esp",
+			short: "español",
 			text: esText
 		},
 		zh: {

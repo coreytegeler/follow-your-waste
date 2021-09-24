@@ -33,6 +33,17 @@ export default function Header({ env, text, lang, langObjs }) {
 
 					<div
 						role="button"
+						id="restart-button"
+						className="restart-button">
+						<div className="tooltip mobile-hidden">
+							<div className="tooltip-inner">
+								Choose a new item
+							</div>
+						</div>
+					</div>
+
+					<div
+						role="button"
 						className="header-item toggle"
 						id="help-toggle"
 						tabIndex={0}

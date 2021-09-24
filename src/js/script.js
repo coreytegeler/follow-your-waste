@@ -716,7 +716,7 @@ const initSite = () => {
 
 			toggleSelectElems(false, () => {
 				selectView.classList.remove("show");
-				if(!streamIntrod) {
+				if(!streamIntrod && window.innerWidth >= 640) {
 					streamIntrod = true;
 					openAlert("streams-intro", () => {
 						self.startStreaming();

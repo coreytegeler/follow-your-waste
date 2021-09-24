@@ -61,16 +61,16 @@
 	z-index: 10;
 }
 .bin {
-	width: 250px;
-	height: 300px;
-	margin: 0 15px 0 15px;
+	width: 220px;
+	height: 266px;
+	margin: 0 15px;
 	position: relative;
 	float: left;
 	transition: transform 800ms $ease;
 	pointer-events: none;
 	transform: translateY(400px);
 	img {
-		width: 250px;
+		width: 220px;
 		height: auto;
 		position: absolute;
 		left: 0;
@@ -89,7 +89,7 @@
 }
 .bin-lid {
 	position: absolute;
-	bottom: 122px;
+	bottom: 110px;
 	transition: transform 400ms $ease;
 }
 .bin-back {
@@ -232,7 +232,7 @@ $items: (
 	"soda-can": 5,
 	"toothpaste": 10,
 	"soiled-paper": 10,
-	"banana": 17,
+	"banana": 13,
 );
 
 @each $name, $scale in $items {

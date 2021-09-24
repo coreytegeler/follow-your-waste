@@ -384,7 +384,7 @@
       "fact3": null
     },
     {
-      "slug": "3-organics",
+      "slug": "pile",
       "label": "N/A",
       "caption": "Los desechos de alimentos y de jardín de toda la ciudad de Nueva York se llevan a las instalaciones regionales de compostaje, donde se convierten en compost terminado.",
       "vocab1": null,
@@ -395,7 +395,7 @@
       "fact3": null
     },
     {
-      "slug": "4-organics",
+      "slug": "composting",
       "label": "N/A",
       "caption": "Equipos especiales de expertos transforman los restos de alimentos, las hojas, las ramas y el papel sucio de los alimentos en compost mediante un proceso especial. En primer lugar, mezclan la cantidad correcta de restos de alimentos, desechos de jardín y otra materia orgánica. El equilibrio adecuado de “material verde\" (elementos ricos en nitrógeno como restos de alimentos) y \"material marrón\" (elementos ricos en carbono como hojas secas o astillas de madera) garantiza que todo el material se descomponga por completo y tenga un contenido de nutrientes balanceado.",
       "vocab1": null,
@@ -406,7 +406,7 @@
       "fact3": null
     },
     {
-      "slug": "5-organics",
+      "slug": "organisms",
       "label": "N/A",
       "caption": "En el transcurso de unas semanas, los restos de alimentos, las hojas y otros materiales se descomponen y se convierten en un material llamado compost. Los organismos generan mucho calor durante este proceso de descomposición. Este calor destruye las semillas de las malas hierbas y los patógenos.",
       "vocab1": null,
@@ -417,7 +417,7 @@
       "fact3": null
     },
     {
-      "slug": "6-organics",
+      "slug": "curing",
       "label": "N/A",
       "caption": "A la larga, los alimentos y las hojas se transformarán en una pila de un material de apariencia similar a tierra oscura y quebradiza. En esta etapa, el compost necesita \"curar\" para garantizar que todos los contenidos de la pila se hayan descompuesto por completo.",
       "vocab1": null,
@@ -428,7 +428,7 @@
       "fact3": null
     },
     {
-      "slug": "7-organics",
+      "slug": "garden",
       "label": "N/A",
       "caption": "¡Enhorabuena! Una vez curados por completo, sus desechos orgánicos se han transformado en compost rico en nutrientes. El producto terminado luego se coloca en bolsas y se distribuye a escuelas, parques públicos, agricultores urbanos, jardineros comunitarios e incluso residentes de la ciudad de Nueva York, que pueden usarlo para cultivar sus propias frutas y verduras en casa.",
       "vocab1": null,

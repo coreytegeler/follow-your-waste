@@ -35,7 +35,7 @@
 		@include hide;
 	}
 	@include md-width {
-		width: calc(100% - 20px);
+		width: calc(80% - 20px);
 	}
 }
 #intro-title-spacer {

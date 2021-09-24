@@ -140,7 +140,7 @@ header#header {
 		width: auto;
 		img {
 			width: auto;
-			max-height: 50px;
+			max-height: 2rem;
 		}
 	}
 }
@@ -158,8 +158,9 @@ header#header {
 }
 
 #help-toggle {
+	height: 1rem;
 	position: relative;
-	top: 1px;
+	top: .25rem;
 	opacity: .75;
 	transition: opacity 300ms $ease;
 	&:hover {
@@ -176,12 +177,20 @@ header#header {
 }
 
 #lang-switch {
-	// position: relative;
-	// top: -6px;
-	padding-left: 10px;
+	width: 7rem;
+	height: 2rem;
+	padding: 0 .5rem;
+	border: 2px solid rgba(white, .75);
+	border-radius: 5px;
+	&.open {
+		height: unset;
+	}
 	.option {
+		width: 100%;
+		height: calc(2rem - 4px);
 		position: relative;
-    top: -1px;
+		padding: .25rem 0 .25rem 0;
+		line-height: 1em;
 	}
 }
 .dropdown {
@@ -193,25 +202,26 @@ header#header {
 	}
 }
 .option {
-	padding: 0 0 6px 0;
+	padding: 0 0 .5rem 0;
 	pointer-events: all;
 	opacity: .75;
 	transition: opacity 300ms $ease;
+	text-align: left;
 	&[role="button"] {
 		cursor: pointer;
 		pointer-events: all;
-		&::before {
+		&::after {
 			content: "";
 			width: 18px;
-			height: 18px;
-	    position: relative;
-	    left: -8px;
-	    top: 4px;
+			height: 100%;
+			position: absolute;
+			right: 0;
+			top: 0;
 			display: inline-block;
 			background-image: url(../images/arrow.svg);
 			background-repeat: no-repeat;
 			background-position: center;
-			background-size: cover;
+			background-size: contain;
 			.dropdown.open & {
 				transform: rotate(180deg);	
 			}
@@ -232,10 +242,10 @@ header#header {
 }
 
 #full-toggle {
-	width: 24px;
-	height: 18px;
+	width: 1.7rem;
+	height: 1.25rem;
 	position: relative;
-	top: 3px;
+	top: .375rem;
 	background-image: url(../images/full.svg);
 	pointer-events: all;
 	@include md-width {
@@ -250,17 +260,57 @@ header#header {
 }
 
 #volume-toggle {
-	width: 24px;
-	height: 24px;
-	// position: relative;
-	// top: 5px;
+	width: 1.5rem;
+	height: 1.5rem;
+	position: relative;
+	top: .25rem;
 	background-image: url(../images/volume.svg);
 	pointer-events: all;
+	background-size: 1.5rem auto;
 	body.mute & {
 		background-position-y: bottom;
 	}
 	@include md-width {
 		margin: 0 10px;
+	}
+}
+
+.restart-button {
+	width: 3rem;
+	height: 3rem;
+	background-image: url(../images/bin.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#restart-button {
+	margin: 0;
+	position: fixed;
+	left: 10px;
+	top: 20px;
+	pointer-events: all;
+	z-index: 80;
+	cursor: pointer;
+	transition: opacity 300ms $ease;
+	.tooltip {
+		left: calc(100% + .5em);
+		top: 50%;
+		transform: translateY(-50%);
+		display: flex;
+	}
+	.tooltip-inner {
+		padding: 5px 15px;
+		white-space: nowrap;
+	}
+	@include sm-width {
+		width: 2rem;
+		height: 2rem;
+		// position: static;
+	}
+	body:not(#streams) & {
+		opacity: 0;
+		pointer-events: none;
 	}
 }
 

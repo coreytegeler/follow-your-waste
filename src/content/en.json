@@ -256,7 +256,7 @@
     {
       "slug": "soiled-paper",
       "label": "Food-soiled paper",
-      "tooltip": "Food isn’t the only thing that can go in the brown compost binbin! Dirty paper napkins, plates, and towels are part of the dry, carbon-rich “brown” materials needed to make healthy compost."
+      "tooltip": "Food isn’t the only thing that can go in the brown compost bin! Dirty paper napkins, plates, and towels are part of the dry, carbon-rich “brown” materials needed to make healthy compost."
     }
   ],
   "landfill": [
@@ -384,7 +384,7 @@
       "fact3": null
     },
     {
-      "slug": "3-organics",
+      "slug": "pile",
       "label": "N/A",
       "caption": "This food and yard waste from across New York City gets taken to regional composting facilities where it is made into finished compost.",
       "vocab1": null,
@@ -395,7 +395,7 @@
       "fact3": null
     },
     {
-      "slug": "4-organics",
+      "slug": "composting",
       "label": "N/A",
       "caption": "Special teams of experts transform food scraps, leaves, branches, and food soiled paper into compost through a special process. First, they mix together the correct balance of food scraps, yard waste, and other organic matter. The right balance of “greens” (nitrogen-rich items like food scrap) and “browns” (carbon-rich items like dried leaves or wood chips) helps to make sure that all of the material will fully decompose with the right balance of nutrients.",
       "vocab1": null,
@@ -406,7 +406,7 @@
       "fact3": null
     },
     {
-      "slug": "5-organics",
+      "slug": "organisms",
       "label": "N/A",
       "caption": "Over the course of a few weeks, the food scraps, leaves, and other materials break down into a material called compost. A lot of heat is created by the organisms during this process of decomposition. This heat destroys weed seeds and pathogens.",
       "vocab1": null,
@@ -417,7 +417,7 @@
       "fact3": null
     },
     {
-      "slug": "6-organics",
+      "slug": "curing",
       "label": "N/A",
       "caption": "Eventually, the food and leaves will transform into a pile of something that looks like dark, crumbly soil. At this stage, the compost needs to “cure” to make sure that everything in the pile has fully decomposed.",
       "vocab1": null,
@@ -428,7 +428,7 @@
       "fact3": null
     },
     {
-      "slug": "7-organics",
+      "slug": "garden",
       "label": "N/A",
       "caption": "Congratulations—after it has fully cured, your organic waste has been transformed into nutrient-rich compost! The finished product then get s put into bags and distributed to schools, public parks, urban farmers, community gardeners, and even NYC residents, who can use the compost to grow their own fruits and veggies at home!",
       "vocab1": null,

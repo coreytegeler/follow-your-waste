@@ -9,7 +9,7 @@ export default function Streams({ text, data }) {
 		<div id="streams-view" className="view" aria-hidden="true">
 			<div className="view-inner">
 
-				<div
+				{/*<div
 					role="menu"
 					id="restart-menu"
 					className="mobile-hidden"
@@ -24,7 +24,7 @@ export default function Streams({ text, data }) {
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>*/}
 
 				{ streams.map((stream, i) => {
 					const streamText = text[stream],

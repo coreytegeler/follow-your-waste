@@ -142,30 +142,30 @@
   "organics": [
     {
       "slug": "garage-organics",
-      "color": "blue",
+      "color": "yellow",
       "orientation": "width",
-      "animated": "false",
-      "looped": "false",
+      "animated": "true",
+      "looped": "true",
       "environment": "traffic"
     },
     {
       "slug": "curbside-organics",
-      "color": "teal",
-      "orientation": "width",
+      "color": "green",
+      "orientation": "height",
       "animated": "false",
       "looped": "false",
       "environment": "traffic"
     },
     {
-      "slug": "3-organics",
-      "color": "blue",
+      "slug": "pile",
+      "color": "teal",
       "orientation": "width",
       "animated": "false",
       "looped": "false",
       "environment": "facility"
     },
     {
-      "slug": "4-organics",
+      "slug": "composting",
       "color": "orange",
       "orientation": "width",
       "animated": "false",
@@ -173,7 +173,7 @@
       "environment": "facility"
     },
     {
-      "slug": "5-organics",
+      "slug": "organisms",
       "color": "lime",
       "orientation": "width",
       "animated": "false",
@@ -181,16 +181,16 @@
       "environment": "facility"
     },
     {
-      "slug": "6-organics",
-      "color": "pink",
+      "slug": "curing",
+      "color": "blue",
       "orientation": "width",
       "animated": "false",
       "looped": "false",
       "environment": "facility"
     },
     {
-      "slug": "7-organics",
-      "color": "yellow",
+      "slug": "garden",
+      "color": "pink",
       "orientation": "width",
       "animated": "false",
       "looped": "false",
