@@ -1,6 +1,6 @@
 {
   "name": "follow-your-waste",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "The everyday story of your waste, as told by New York’s Strongest.",
   "author": "",
   "license": "ISC",
@@ -9,14 +9,13 @@
     "url": "https://github.com/sanitationfoundation/follow-your-waste"
   },
   "scripts": {
-    "watch": "gatsby develop",
-    "watch-mobile": "gatsby develop -H 0.0.0.0 -p 8000",
+    "start": "gatsby develop",
+    "start-mobile": "gatsby develop -H 0.0.0.0 -p 8000",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public -b gh-pages",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "serve": "gatsby serve -p 9001",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "draggabilly": "^2.3.0",
