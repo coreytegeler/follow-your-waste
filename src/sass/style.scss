@@ -245,6 +245,7 @@ header#header {
 	position: relative;
 	top: .375rem;
 	background-image: url(../images/full.svg);
+	background-size: 1.7rem auto;
 	pointer-events: all;
 	@include md-width {
 		bottom: 210px;

@@ -358,6 +358,7 @@ audio {
 	right: 10px;
 	top: calc(50% - 15px);
 	background-image: url(../images/playback.svg);
+	background-size: 30px;
 	body.playing & {
 		background-position-y: bottom;
 	}
