@@ -965,7 +965,7 @@ const initSite = () => {
 				path: this.elem.dataset.src
 			});
 
-			animation.addEventListener("loaded_images", (e) => {
+			animation.addEventListener("config_ready", (e) => {
 				self.elem.classList.add("loaded");
 				animation.goToAndPlay(0);
 			});

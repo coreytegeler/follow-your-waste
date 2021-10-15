@@ -234,7 +234,7 @@ button {
 
 #alert-streams-end {
 	a {
-		display: table;
+		display: block;
 		text-decoration: underline;
 		margin-bottom: 5px;
 		@include lg-text;
