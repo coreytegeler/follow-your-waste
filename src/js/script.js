@@ -133,10 +133,16 @@ const initSite = () => {
 		const type = elem.dataset.type;
 		$(elem).prop("volume", 0);
 		elem.currentTime = 0;
-		elem.play();
-		$(elem).animate({
-			volume: volMax[type]
-		}, fadeInDur[type]);
+		// const playPromise = elem.play();
+		// if (playPromise !== undefined) {
+		//   playPromise.then(() => {
+		//     $(elem).animate({
+		// 			volume: volMax[type]
+		// 		}, fadeInDur[type]);
+		//   }).catch((error) => {
+		//     console.warn(error);
+		//   });
+		// }
 	};
 
 	const pauseAudio = (elem) => {
@@ -300,6 +306,10 @@ const initSite = () => {
 					cancelBttnElem = alertElem.querySelector(".cancel"),
 					audioElem = alertElem.querySelector("audio");
 
+		if("activeElement" in document) {
+	    document.activeElement.blur();
+		}
+
 		alertElem.classList.add("show");
 		body.classList.add("alerts");
 		body.setAttribute("aria-hidden", false);
@@ -371,7 +381,9 @@ const initSite = () => {
 			buttonElem.onclick = (e) => {
 				const selectAlert = document.querySelector("#alert-select"),
 							streamSlug = buttonElem.dataset.stream,
-							streamObj = streams[streamSlug];
+							streamObj = streams[streamSlug],
+							itemImg = buttonElem.querySelector("img");
+				selectedItem.src = itemImg.src;
 				selectAlert.classList.remove("show");
 				body.classList.remove("alerts");
 				streamObj.introStreams();
@@ -478,11 +490,11 @@ const initSite = () => {
 						itemBounds = itemElem.getBoundingClientRect();
 			this.fixTooltip();
 
-			let binSlug;
+			let binSlug = false;
 			binElems.forEach((binElem) => {
 				const binBounds = binElem.getBoundingClientRect();
 				if(this.isOver(itemBounds, binBounds)) {
-					binSlug = binElem.dataset.bin
+					binSlug = binElem.dataset.bin;
 				}
 			});
 
@@ -587,7 +599,7 @@ const initSite = () => {
 						newItemTop =
 							window.innerHeight
 							- binBounds.height
-							- itemBounds.height;
+							- itemBounds.height * 2;
 
 			$(itemElem).animate({
 				top: `${newItemTop}px`,
@@ -605,7 +617,6 @@ const initSite = () => {
 			itemElem.classList.add("returning");
 			itemsWrapPackery.layout();
 			itemElem.classList.remove("returning");
-
 			this.bin = null;
 		}
 

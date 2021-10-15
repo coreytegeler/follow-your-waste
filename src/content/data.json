@@ -152,15 +152,15 @@
       "slug": "curbside-organics",
       "color": "green",
       "orientation": "height",
-      "animated": "false",
-      "looped": "false",
+      "animated": "true",
+      "looped": "true",
       "environment": "traffic"
     },
     {
       "slug": "pile",
       "color": "teal",
-      "orientation": "width",
-      "animated": "false",
+      "orientation": "height",
+      "animated": "true",
       "looped": "false",
       "environment": "facility"
     },
@@ -175,26 +175,26 @@
     {
       "slug": "organisms",
       "color": "lime",
-      "orientation": "width",
-      "animated": "false",
-      "looped": "false",
+      "orientation": "height",
+      "animated": "true",
+      "looped": "true",
       "environment": "facility"
     },
     {
       "slug": "curing",
       "color": "blue",
       "orientation": "width",
-      "animated": "false",
-      "looped": "false",
+      "animated": "true",
+      "looped": "true",
       "environment": "facility"
     },
     {
       "slug": "garden",
       "color": "pink",
       "orientation": "width",
-      "animated": "false",
+      "animated": "true",
       "looped": "false",
-      "environment": "facility"
+      "environment": "traffic"
     }
   ],
   "paper": [
@@ -380,7 +380,7 @@
       "slug": "magnets",
       "color": "teal",
       "orientation": "width",
-      "animated": "true",
+      "animated": "false",
       "looped": "true",
       "environment": "facility"
     },
@@ -388,7 +388,7 @@
       "slug": "trommel",
       "color": "orange",
       "orientation": "width",
-      "animated": "true",
+      "animated": "false",
       "looped": "true",
       "environment": "facility"
     },

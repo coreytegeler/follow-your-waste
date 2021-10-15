@@ -36,6 +36,7 @@
 	}
 	@include md-width {
 		width: calc(80% - 20px);
+		max-height: 40vh;
 	}
 }
 #intro-title-spacer {
@@ -97,7 +98,7 @@
 		left: 80px;
     top: 48px;
 		color: black;
-		text-transform: lowercase;
+		// text-transform: lowercase;
 		text-align: center;
 		font-weight: bold;
 		@include lg-text;

@@ -14,7 +14,6 @@
 	}
 }
 .alert {
-	// width: 80%;
 	max-width: 900px;
 	padding: 30px 40px;
 	margin: auto;
@@ -43,6 +42,7 @@
 		background-color: $orange;
 		border-radius: 0;
 		max-width: unset;
+		overflow-x: hidden;
 	}
 	&:not(.show) {
 		@include hide;
@@ -114,7 +114,7 @@ button {
 	color: inherit;
 	background-color: transparent;
 	text-decoration: none;
-	text-transform: lowercase;
+	// text-transform: lowercase;
 	font-weight: bold;
 }
 
@@ -140,7 +140,7 @@ button {
 	padding: 0 30px;
 	position: relative;
 	@include sm-width {
-		// width: 100%;
+		width: 100%;
 		padding: 30px 0;
 		text-align: center;
 	}
@@ -215,30 +215,46 @@ button {
 	.alert-buttons {
 		display: block;
 	}
-	.button {
+	button {
+		width: 50%;
 		margin: 0 auto 10px auto;
+		img {
+			width: 100%;
+			height: auto;
+		}
+		&[data-stream="plastic"] img {
+			width: 70%;
+		}
+		&[data-stream="organics"] img,
+		&[data-stream="paper"] img {
+			transform: scale(1.4);	
+		}
 	}
 }
 
 #alert-streams-end {
-	[role="menu"] {
-		text-align: center;
-	}
-	h2, h3, a {
-		text-transform: lowercase;
-	}
 	a {
 		display: table;
 		text-decoration: underline;
+		margin-bottom: 5px;
+		@include lg-text;
+	}
+	@include sm-width {
+		justify-content: unset;
 	}
 }
 #message-streams-end {
 	max-width: 900px;
 	@include sm-width {
 		max-width: 400px;
+		.row {
+			flex-direction: column-reverse;
+		}
 	}
 	.col:first-child {
 		display: flex;
+		flex-direction: column;
+    justify-content: center;
 	}
 	p {
 		text-align: left;
@@ -260,12 +276,12 @@ button {
 	max-width: 300px;
 	max-height: 300px;
 	display: block;
-	margin: auto;
+	margin: 0 auto;
 }
 #menu-resources {
-	display: table;
-	margin: auto;
+	padding-left: 20px;
+	text-align: left;
 }
 #message-menu-resources {
-	margin: 15px 0;
+	margin: 75px 0 15px 0;
 }

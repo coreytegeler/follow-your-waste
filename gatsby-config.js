@@ -11,8 +11,18 @@ module.exports = {
     lang: `en`,
   },
   plugins: [
-    `gatsby-plugin-sass`,
     `gatsby-transformer-json`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        useResolveUrlLoader: {
+          options: {
+            sourceMap: true,
+          },
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -20,7 +30,6 @@ module.exports = {
         path: `${__dirname}/src/content/`,
       },
     },
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

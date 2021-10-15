@@ -17,6 +17,16 @@
 		opacity: 0;
 		pointer-events: none;
 	}
+	@include sm-width {
+		display: flex;
+		flex-direction: column;
+	}
+}
+.scenes-wrap {
+	@include sm-width {
+		width: 100%;
+		flex: 1;
+	}
 }
 
 // #restart-menu {
@@ -43,8 +53,7 @@
 		}
 	}
 	@include sm-width {
-		top: unset;
-		bottom: 0;
+		top: 50px;
 	}
 }
 .ticks-wrap {
@@ -57,7 +66,7 @@
 		width: 100%;
 	}
 	@include sm-width {
-		height: 8px;
+		height: 10px;
 	}
 }
 .tick {
@@ -96,8 +105,8 @@
 		opacity: 1;
 	}
 	@include sm-width {
-		width: 8px;
-		height: 8px;
+		width: 10px;
+		height: 10px;
 	}
 }
 
@@ -146,7 +155,8 @@ audio {
 		}
 		@include sm-width {
 			&.width, &.height {
-				height: 50vh !important;
+				height: 57vw !important;
+				margin-top: 60px;
 				svg {
 					width: 100% !important;
 					margin: auto !important;
@@ -207,7 +217,7 @@ audio {
 ////////////////////////////////////
 ///////////// CHYRONS //////////////
 ////////////////////////////////////
-.chyron-wrap-wrap {
+.lower-third {
 	width: 100%;
 	position: absolute;
 	left: 0;
@@ -215,7 +225,7 @@ audio {
 	z-index: 50;
 	color: white;
 	pointer-events: none;
-	transform: translateY(calc(100% + 50px));
+	transform: translateY(calc(100% + 60px));
 	transition: transform 300ms $ease;
 	body#streams:not(.alerts) .stream:not(.ending).show & {
 		transform: translateY(0);
@@ -225,11 +235,11 @@ audio {
 		bottom: 0;
 	}
 	@include sm-width {
-		height: 50vh;
-		// position: relative;
+		height: calc(100% - 57vw - 60px);
+		position: static;
 	}
 }
-.chyron-wrap {
+.chyron-outer {
 	width: calc(100% - 120px);
 	max-width: $md-width;
 	margin: auto;
@@ -286,10 +296,10 @@ audio {
 			margin: auto;
 		}
 		@include md-width {
-			width: 100px;
-			height: 100px;
-			top: -50px;
-			left: 20px;
+			width: 80px;
+			height: auto;
+			top: -30px;
+			left: 10px;
 		}
 	}
 }
@@ -298,7 +308,7 @@ audio {
 	min-height: 120px;
 	@include md-width {
 		clear: both;
-		padding-top: 60px;
+		// padding-top: 60px;
 	}
 	.caption {
 		padding: 20px 60px 20px 90px;
@@ -320,6 +330,13 @@ audio {
 			@include md-width {
 				width: 100%;
 				max-width: unset;
+				&::before {
+					content: "";
+					width: 80px;
+					height: 50px;
+					display: block;
+					float: left;
+				}
 			}
 		}
 		.vocab {
@@ -441,109 +458,134 @@ audio {
 			}
 		}
 		@include sm-width {
-			height: 50vh;
-			top: -50vh;
+			height: 57vw;
+			top: -57vw;
+			bottom: unset;
 		}
 	}
 }
 
-$light-amt: 80%;
-$lighter-amt: 10%;
+$light-amt: 10%;
+$lighter-amt: 30%;
 
 .stream[data-slug="metal"] {
 	.vocab {
+		color: lighten($blue, $lighter-amt);
 		border-color: $blue;
 		&.clickable {
 			&:hover, &:focus {
-				color: $blue;
+				// color: $blue;
 			}
 		}
 	}
 	.factoid .vocab {
-		color: $blue;
+		color: lighten($blue, $lighter-amt);
 	}
-	.chyron-inner {
-		border-color: $blue-dark;
+	.chyron-inner,
+	.factoid-inner,
+	.factoid-inner::before,
+	.factoid-tab::before {
+		border-color: $blue;
 	}
 }
 .stream[data-slug="glass"] {
 	.vocab {
+		color: lighten($orange, $light-amt);
 		border-color: $orange;
 		&.clickable {
 			&:hover, &:focus {
-				color: $orange;
+				// color: $orange;
 			}
 		}
 	}
 	.factoid .vocab {
-		color: $orange;
+		color: lighten($orange, $light-amt);
 	}
-	.chyron-inner {
-		border-color: $orange-dark;
+	.chyron-inner,
+	.factoid-inner,
+	.factoid-inner::before,
+	.factoid-tab::before {
+		border-color: $orange;
 	}
 }
 .stream[data-slug="plastic"] {
 	.vocab {
+		color: lighten($red, $lighter-amt);
 		border-color: $red;
 		&.clickable {
 			&:hover, &:focus {
-				color: $red;
+				// color: $red;
 			}
 		}
 	}
 	.factoid .vocab {
-		color: $red;
+		color: lighten($red, $lighter-amt);
 	}
-	.chyron-inner {
-		border-color: $red-dark;
+	.chyron-inner,
+	.factoid-inner,
+	.factoid-inner::before,
+	.factoid-tab::before {
+		border-color: $red;
 	}
 }
 .stream[data-slug="paper"] {
 	.vocab {
+		color: lighten($green, $light-amt);
 		border-color: $green;
 		&.clickable {
 			&:hover, &:focus {
-				color: $green;
+				// color: $green;
 			}
 		}
 	}
 	.factoid .vocab {
-		color: $green;
+		color: lighten($green, $light-amt);
 	}
-	.chyron-inner {
-		border-color: $green-dark;
+	.chyron-inner,
+	.factoid-inner,
+	.factoid-inner::before,
+	.factoid-tab::before {
+		border-color: $green;
 	}
 }
 .stream[data-slug="landfill"] {
 	.vocab {
+		color: lighten($pink, $light-amt);
 		border-color: $pink;
 		&.clickable {
 			&:hover, &:focus {
-				color: $pink;
+				// color: $pink;
 			}
 		}
 	}
 	.factoid .vocab {
-		color: $pink;
+		color: lighten($pink, $light-amt);
 	}
-	.chyron-inner {
-		border-color: $pink-dark;
+	.chyron-inner,
+	.factoid-inner,
+	.factoid-inner::before,
+	.factoid-tab::before {
+		border-color: $pink;
 	}
 }
 .stream[data-slug="organics"] {
 	.vocab {
+		color: lighten($teal, $light-amt);
 		border-color: $teal;
 		&.clickable {
 			&:hover, &:focus {
-				color: $teal;
+				// color: $teal;
 			}
 		}
 	}
 	.factoid .vocab {
-		color: $teal;
+		color: lighten($teal, $light-amt);
 	}
-	.chyron-inner {
-		border-color: $teal-dark;
+	.chyron-inner,
+	.factoid-inner,
+	.factoid-inner::before,
+	.factoid-tab::before {
+		border-color: $teal;
 	}
 }
 ////////////////////////////////////
@@ -560,10 +602,6 @@ $lighter-amt: 10%;
 	justify-content: center;
 	outline: none;
 	transition: opacity 300ms $ease;
-	.alerts & {
-		opacity: 0;
-		pointer-events: none;
-	}
 	@include md-width {
 		display: none;
 	}
@@ -572,36 +610,41 @@ $lighter-amt: 10%;
 	width: 50%;
 	min-width: 400px;
 	max-width: 600px;
-	margin: 0 0 15px 0;
-	transform: translateX(60px);
-	transition: transform 300ms $ease;
+	margin: 0 0 15px 3px;
 	position: relative;
-	body:not(.alerts) .stream.show & {
+	transition: transform 300ms $ease;
+	transform: translateX(70px);
+	.scene.show & {
 		transform: none;
-		&.open {
-			transform: translateX(-100%);
-		}
+	}
+	.scene.show &.open {
+		transform: translateX(-100%);
+	}
+	.alerts & {
+		transform: translateX(70px) !important;
 	}
 	&:focus {
 		outline: none;
 	}
 }
 .factoid-tab {
-	height: 60px;
-	width: 60px;
+	height: 66px;
+	width: 70px;
 	position: absolute;
-	left: -60px;
+	left: -70px;
 	top: 0;
 	&:hover {
 		cursor: pointer;
 	}
 	&::before {
 		content: "";
-		width: 50px;
-		height: 100%;
+		width: 70px;
+		height: 60px;
 		position: absolute;
 		right: 0;
 		top: 0;
+		border-width: 3px 0 3px 3px;
+		border-style: solid;
 		border-radius: 60px 0 0 60px;
 		background-color: $darken;
 		overflow: hidden;
@@ -609,15 +652,16 @@ $lighter-amt: 10%;
 	}
 	&::after {
 		content: "";
-		width: 30px;
-		height: 30px;
+		width: 100%;
+		height: 100%;
 		position: absolute;
-		right: 5px;
-		top: 15px;
+		right: 0;
+		top: 0;
 		opacity: .75;
 		background-image: url(../images/plus.svg);
-		background-position: bottom center;
-		background-size: cover;
+		background-position: center;
+		background-size: 30px auto;
+		background-repeat: no-repeat;
 		transition: all 300ms $ease;
 	}
 	&:hover::after {
@@ -625,11 +669,11 @@ $lighter-amt: 10%;
 	}
 	.factoid:not(.open) &:hover::before,
 	.factoid:not(.open):focus &::before {
-		width: 60px;
+		// width: 60px;
 	}
 	.factoid:not(.open) &:hover::after,
 	.factoid:not(.open):focus &::after {
-		right: 15px;
+		// right: 15px;
 	}
 	.factoid.open &::after {
 		transform: rotate(45deg);
@@ -644,6 +688,8 @@ $lighter-amt: 10%;
 	border-radius: 0 0 0 20px;
 	position: relative;
 	user-select: text;
+	border-style: solid;
+	border-width: 3px 0;
 	.vocab {
 		text-transform: capitalize;
 		&::after {
@@ -654,5 +700,16 @@ $lighter-amt: 10%;
 	p {
 		@include lg-text;
 		margin: 5px 0 0 0;
+	}
+	&::before {
+		content: "";
+    width: 100%;
+    height: calc(100% - 60px);
+    display: block;
+    position: absolute;
+    left: -3px;
+    top: 60px;
+    border-left: solid 3px;
+    border-radius: 0 0 0 20px;
 	}
 }

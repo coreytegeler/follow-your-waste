@@ -120,8 +120,8 @@ export default function Streams({ text, data }) {
 								
 							</div>
 
-							<div className="chyron-wrap-wrap">
-								<div className="chyron-wrap">
+							<div className="lower-third">
+								<div className="chyron-outer">
 									<div className="chyron">
 										<div className="chyron-inner">
 											<div className="portrait">

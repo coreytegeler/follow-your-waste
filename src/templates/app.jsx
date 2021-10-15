@@ -17,18 +17,15 @@ const App = ({ pageContext }) => {
 
 	const langObjs = {
 		en: {
-			long: "English",
-			short: "english",
+			label: "English",
 			text: enText
 		},
 		es: {
-			long: "Español",
-			short: "español",
+			label: "Español",
 			text: esText
 		},
 		zh: {
-			long: "简体",
-			short: "简体",
+			label: "简体",
 			text: zhText
 		}
 	};
@@ -49,6 +46,7 @@ const App = ({ pageContext }) => {
 
 	return (
 		<div>
+		
 			<Helmet
 				title={`${text.system.title} — ${text.system.tagline}`}
 				bodyAttributes={{

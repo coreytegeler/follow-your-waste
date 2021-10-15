@@ -89,7 +89,7 @@
 }
 .bin-lid {
 	position: absolute;
-	bottom: 110px;
+	bottom: 107px;
 	transition: transform 400ms $ease;
 }
 .bin-back {
@@ -139,12 +139,15 @@ $bins: ("paper", "mgp", "landfill", "organics");
 	text-align: center;
 }
 #message-select-persist {
+	width: 100%;
 	position: fixed;
 	top: 27px;
+	left: 0;
 	z-index: 40;
 	pointer-events: none;
+	text-align: center;
 	@include md-width {
-		width: 300px
+		display: none;
 	}
 }
 .item {

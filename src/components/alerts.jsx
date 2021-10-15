@@ -309,15 +309,9 @@ export default function Alerts({ text }) {
 					<div className="message" id="message-streams-end">
 						<div className="row">
 							<div className="col">
+
 								<img id="selected-item" alt="" />
-							</div>
-							<div className="col">
-								<h2>
-									{text.system.final_title}
-								</h2>
-								<p>
-									{text.system.final_statement}
-								</p>
+
 								<div
 									role="menu"
 									className="alert-buttons"
@@ -329,40 +323,53 @@ export default function Alerts({ text }) {
 										{text.system.final_restart}
 									</button>
 								</div>
+
 							</div>
-						</div>
-						<div
-							role="menu"
-							id="menu-resources"
-							tabIndex={-1}
-							aria-labelledby="message-menu-resources">
-							<h3 id="message-menu-resources">
-								{text.system.final_resources}
-							</h3>
-							<a
-								className=""
-								href="https://www.sanitationfoundation.org/meet-the-workers"
-								target="_blank"
-								rel="noreferrer"
-								role="menuitem">
-								{text.system.final_workers}
-							</a>
-							<a
-								className=""
-								href="https://www.sanitationfoundation.org/lesson-pans"
-								target="_blank"
-								rel="noreferrer"
-								role="menuitem">
-								{text.system.final_lessons}
-							</a>
-							<a
-								className=""
-								href="https://www.sanitationfoundation.org/follow-your-waste"
-								target="_blank"
-								rel="noreferrer"
-								role="menuitem">
-								{text.system.final_about}
-							</a>
+							<div className="col">
+
+								<h2>
+									{text.system.final_title}
+								</h2>
+								<p>
+									{text.system.final_statement}
+								</p>
+
+								<h3 id="message-menu-resources">
+									{text.system.final_resources}
+								</h3>
+								<ul
+									id="menu-resources"
+									aria-labelledby="message-menu-resources">
+									<li>
+										<a
+											href="https://www.sanitationfoundation.org/meet-the-workers"
+											target="_blank"
+											rel="noreferrer"
+											role="menuitem">
+											{text.system.final_workers}
+										</a>
+									</li>
+									<li>
+										<a
+											href="https://www.sanitationfoundation.org/lesson-plans"
+											target="_blank"
+											rel="noreferrer"
+											role="menuitem">
+											{text.system.final_lessons}
+										</a>
+									</li>
+									<li>
+										<a
+											href="https://www.sanitationfoundation.org/follow-your-waste"
+											target="_blank"
+											rel="noreferrer"
+											role="menuitem">
+											{text.system.final_about}
+										</a>
+									</li>
+								</ul>
+
+							</div>
 						</div>
 					</div>
 				</div>

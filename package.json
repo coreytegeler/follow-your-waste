@@ -1,6 +1,6 @@
 {
   "name": "follow-your-waste",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "The everyday story of your waste, as told by New York’s Strongest.",
   "author": "",
   "license": "ISC",
@@ -10,11 +10,12 @@
   },
   "scripts": {
     "start": "gatsby develop",
-    "start-mobile": "gatsby develop -H 0.0.0.0 -p 8000",
+    "start-mobile": "gatsby develop -H 0.0.0.0 -p 8000 --verbose",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public -b gh-pages",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "serve": "gatsby serve -p 9001",
+    "serve-mobile": "gatsby serve -H 0.0.0.0 -p 9001",
     "clean": "gatsby clean"
   },
   "dependencies": {
@@ -33,6 +34,7 @@
     "gatsby-plugin-sharp": "^2.14.1",
     "gatsby-source-filesystem": "^2.11.0",
     "gatsby-transformer-json": "^2.11.0",
+    "resolve-url-loader": "^4.0.0",
     "gh-pages": "^3.1.0",
     "i": "^0.3.6",
     "node-sass": "^4.14.1",

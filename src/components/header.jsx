@@ -57,13 +57,13 @@ export default function Header({ env, text, lang, langObjs }) {
 						<div
 							role="button"
 							className="option"
-							title={currLangObj.long}
+							title={currLangObj.label}
 							aria-hidden={true}
 							tabIndex={0}
 							// onFocus={() => setLangMenu(!langMenu)}
 							onClick={() => setLangMenu(!langMenu)}
 							onKeyPress={() => setLangMenu(!langMenu)}>
-							{currLangObj.short}
+							{currLangObj.label}
 						</div>
 
 						<div
@@ -85,10 +85,10 @@ export default function Header({ env, text, lang, langObjs }) {
 											role="menuitem"
 											lang={langKey}
 											href={langUrl}
-											title={langObj.long}
+											title={langObj.label}
 											tabIndex={0}
-											aria-label={`Switch to ${langObj.long}`}>
-											{langObj.short}
+											aria-label={`Switch to ${langObj.label}`}>
+											{langObj.label}
 										</a>
 									</div>
 								);

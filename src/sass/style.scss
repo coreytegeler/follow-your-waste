@@ -112,16 +112,14 @@ header#header {
 	justify-content: flex-end;
 	font-weight: bold;
 	text-align: right;
-	text-transform: lowercase;
+	// text-transform: lowercase;
 	user-select: none;
 	pointer-events: none;
 	@include md-text;
 	@include sm-width {
+		height: 50px;
 		padding: 10px;
-		body.alerts &,
-		body#select & {
-			background-color: $darken;
-		}
+		background-color: $darken;
 	}
 }
 #logo {
@@ -306,7 +304,7 @@ header#header {
 	@include sm-width {
 		width: 2rem;
 		height: 2rem;
-		// position: static;
+		top: 10px;
 	}
 	body:not(#streams) & {
 		opacity: 0;
@@ -357,6 +355,9 @@ header#header {
 	transition: opacity 100ms $ease, top 100ms $ease;
 	*:hover > & {
 		opacity: 1;
+	}
+	body.alerts & {
+		opacity: 0 !important;
 	}
 }
 .tooltip-inner {
