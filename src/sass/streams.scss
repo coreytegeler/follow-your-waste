@@ -14,8 +14,7 @@
 	left: 0;
 	top: 0;
 	&:not(.show) {
-		opacity: 0;
-		pointer-events: none;
+		display: none;
 	}
 	@include sm-width {
 		display: flex;
