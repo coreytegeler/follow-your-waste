@@ -80,23 +80,27 @@
 }
 #loading {
 	width: 300px;
-	height: 150px;
+	height: 120px;
 	position: absolute;
 	left: 0px;
 	top: -50px;
 	z-index: 1;
 	transform: translateX(-300px);
 	text-align: center;
-	background-image: url(../images/loading.png);
-	background-position: center;
-	background-size: contain;
-	background-repeat: no-repeat;
+	// background-image: url(../images/loading.png);
+	// background-position: center;
+	// background-size: contain;
+	// background-repeat: no-repeat;
 	user-select: none;
+	img {
+		width: 100%;
+		height: auto;
+	}
 	span {
 		width: 145px;
 		position: absolute;
 		left: 80px;
-    top: 48px;
+    top: 35px;
 		color: black;
 		// text-transform: lowercase;
 		text-align: center;

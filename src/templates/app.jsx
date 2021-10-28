@@ -51,7 +51,7 @@ const App = ({ pageContext }) => {
 				title={`${text.system.title} — ${text.system.tagline}`}
 				bodyAttributes={{
 					id: "intro",
-					class: "loading",
+					class: "",
 				}}
 				meta={[{
 					name: text.system.title,

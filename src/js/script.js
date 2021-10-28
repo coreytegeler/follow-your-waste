@@ -133,16 +133,16 @@ const initSite = () => {
 		const type = elem.dataset.type;
 		$(elem).prop("volume", 0);
 		elem.currentTime = 0;
-		// const playPromise = elem.play();
-		// if (playPromise !== undefined) {
-		//   playPromise.then(() => {
-		//     $(elem).animate({
-		// 			volume: volMax[type]
-		// 		}, fadeInDur[type]);
-		//   }).catch((error) => {
-		//     console.warn(error);
-		//   });
-		// }
+		const playPromise = elem.play();
+		if (playPromise !== undefined) {
+			playPromise.then(() => {
+				$(elem).animate({
+					volume: volMax[type]
+				}, fadeInDur[type]);
+			}).catch((error) => {
+				console.warn(error);
+			});
+		}
 	};
 
 	const pauseAudio = (elem) => {
@@ -307,7 +307,7 @@ const initSite = () => {
 					audioElem = alertElem.querySelector("audio");
 
 		if("activeElement" in document) {
-	    document.activeElement.blur();
+			document.activeElement.blur();
 		}
 
 		alertElem.classList.add("show");
@@ -415,17 +415,21 @@ const initSite = () => {
 		for(let i = itemsKeys.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
 			[itemsKeys[i], itemsKeys[j]] = [itemsKeys[j], itemsKeys[i]];
-    }
-    if(show) {
-    	handleSelect();
-    }
+		}
+		if(show) {
+			handleSelect();
+		}
 		selectView.classList.toggle("show-bins", show);
+
+		let ms = 0;
+
+		setInterval(() => {
+			ms++;
+		}, 1);
 
 		itemsKeys.forEach((itemKey, i) => {
 			const itemObj = itemsObj[itemKey],
 						itemElem = itemObj.elem;
-
-
 			setTimeout(() => {
 				if(!itemElem.classList.contains("dropping")) {
 					itemElem.classList.add("setting");
@@ -434,21 +438,20 @@ const initSite = () => {
 				
 				setTimeout(() => {
 					itemElem.classList.remove("setting");
-			  }, 1000);
+				}, 1000);
 
-			  if(itemElem.classList.contains("dropping") && !show) {
-			  	setTimeout(() => {
+				if(itemElem.classList.contains("dropping") && !show) {
+					setTimeout(() => {
 						itemElem.classList.remove("show", "dropping");
 					}, 10 * itemsKeys.length + 1100);
 				}
-
 			}, (show ? 50 : 10) * i);
 		});
 
 		if(callback) {
 			setTimeout(() => {
 				callback();
-			}, 500);
+			}, 1000);
 		}
 	}
 
@@ -720,11 +723,7 @@ const initSite = () => {
 
 		introStreams() {
 			const self = this;
-						// restartBttnImg = restartBttn.querySelector(`[data-stream="${this.bin}"]`);
-
-			// restartBttn.append(restartBttnImg);
 			self.loadAssets();
-
 			toggleSelectElems(false, () => {
 				selectView.classList.remove("show");
 				if(!streamIntrod && window.innerWidth >= 640) {
@@ -1120,14 +1119,17 @@ const initSite = () => {
 	setUpStreams();
 	setUpSelect();
 
-	setTimeout(() => {
-		setUp();
-	}, 5000);
+	const loadingImg = document.querySelector("#loading img");
+	loadingImg.addEventListener("load", () => {
+		body.classList.add("loading");
+		setTimeout(() => {
+			setUp();
+		}, 5000);
+	});
 
 	if(isIframe()) {
 		body.classList.add("full");
 	}
-
 
 };
 

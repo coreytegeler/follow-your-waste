@@ -28,13 +28,6 @@
 	}
 }
 
-// #restart-menu {
-// 	position: absolute;
-// 	left: 15px;
-// 	top: 25px;
-// 	z-index: 60;
-// }
-
 .progress {
 	width: 100%;
 	background-color: rgba(255, 255, 255, 0.25);
@@ -81,20 +74,6 @@
 	transition: opacity 300ms $ease;
 	.tooltip {
 		transform: translate(calc(-50% + 8px), 10px);
-		// position: absolute;
-		// top: 25px;
-		// left: 0px;
-		// opacity: 0;
-		// color: white;
-		// white-space: nowrap;
-		// pointer-events: none;
-		// transition: opacity 300ms $ease;
-		// text-transform: lowercase;
-	}
-	&:last-of-type .tooltip,
-	&:nth-last-of-type(1) .tooltip {
-		// left: auto;
-		// right: 0;
 	}
 	&:hover,
 	&:hover .tooltip {
@@ -307,7 +286,6 @@ audio {
 	min-height: 120px;
 	@include md-width {
 		clear: both;
-		// padding-top: 60px;
 	}
 	.caption {
 		padding: 20px 60px 20px 90px;
@@ -472,11 +450,6 @@ $lighter-amt: 30%;
 	.vocab {
 		color: lighten($blue, $lighter-amt);
 		border-color: $blue;
-		&.clickable {
-			&:hover, &:focus {
-				// color: $blue;
-			}
-		}
 	}
 	.factoid .vocab {
 		color: lighten($blue, $lighter-amt);
@@ -492,11 +465,6 @@ $lighter-amt: 30%;
 	.vocab {
 		color: lighten($orange, $light-amt);
 		border-color: $orange;
-		&.clickable {
-			&:hover, &:focus {
-				// color: $orange;
-			}
-		}
 	}
 	.factoid .vocab {
 		color: lighten($orange, $light-amt);
@@ -512,11 +480,6 @@ $lighter-amt: 30%;
 	.vocab {
 		color: lighten($red, $lighter-amt);
 		border-color: $red;
-		&.clickable {
-			&:hover, &:focus {
-				// color: $red;
-			}
-		}
 	}
 	.factoid .vocab {
 		color: lighten($red, $lighter-amt);
@@ -532,11 +495,6 @@ $lighter-amt: 30%;
 	.vocab {
 		color: lighten($green, $light-amt);
 		border-color: $green;
-		&.clickable {
-			&:hover, &:focus {
-				// color: $green;
-			}
-		}
 	}
 	.factoid .vocab {
 		color: lighten($green, $light-amt);
@@ -552,11 +510,6 @@ $lighter-amt: 30%;
 	.vocab {
 		color: lighten($pink, $light-amt);
 		border-color: $pink;
-		&.clickable {
-			&:hover, &:focus {
-				// color: $pink;
-			}
-		}
 	}
 	.factoid .vocab {
 		color: lighten($pink, $light-amt);
@@ -572,11 +525,6 @@ $lighter-amt: 30%;
 	.vocab {
 		color: lighten($teal, $light-amt);
 		border-color: $teal;
-		&.clickable {
-			&:hover, &:focus {
-				// color: $teal;
-			}
-		}
 	}
 	.factoid .vocab {
 		color: lighten($teal, $light-amt);
