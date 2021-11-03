@@ -1113,13 +1113,9 @@ const initSite = () => {
 	setUpStreams();
 	setUpSelect();
 
-	const loadingImg = document.querySelector("#loading img");
-	loadingImg.addEventListener("load", () => {
-		body.classList.add("loading");
-		setTimeout(() => {
-			setUp();
-		}, 5000);
-	});
+	setTimeout(() => {
+		setUp();
+	}, 5000);
 
 	if(isIframe()) {
 		body.classList.add("full");
