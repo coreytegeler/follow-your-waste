@@ -421,12 +421,6 @@ const initSite = () => {
 		}
 		selectView.classList.toggle("show-bins", show);
 
-		let ms = 0;
-
-		setInterval(() => {
-			ms++;
-		}, 1);
-
 		itemsKeys.forEach((itemKey, i) => {
 			const itemObj = itemsObj[itemKey],
 						itemElem = itemObj.elem;
