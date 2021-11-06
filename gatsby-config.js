@@ -5,6 +5,7 @@
  */
 
 module.exports = {
+  pathPrefix: `/`,
   siteMetadata: {
     title: `Follow Your Waste`,
     lang: `en`,
@@ -42,6 +43,6 @@ module.exports = {
       }
     },
     // 'gatsby-plugin-offline'
-    'gatsby-plugin-remove-serviceworker'
+    // 'gatsby-plugin-remove-serviceworker'
   ],
 };
