@@ -12,7 +12,7 @@
     "start": "gatsby develop",
     "start:mobile": "gatsby develop -H 0.0.0.0 -p 8000 --verbose",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b main",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b gh-pages",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "serve": "gatsby serve -p 9001",
     "serve:mobile": "gatsby serve -H 0.0.0.0 -p 9001 --verbose",
