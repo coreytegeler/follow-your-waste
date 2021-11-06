@@ -718,7 +718,6 @@ const initSite = () => {
 
 		introStreams() {
 			const self = this;
-			self.loadAssets();
 			toggleSelectElems(false, () => {
 				selectView.classList.remove("show");
 				// if(!streamIntrod && window.innerWidth >= 640) {
@@ -771,6 +770,7 @@ const initSite = () => {
 			const firstSceneObj = this.scenes[`garage-${this.slug}`];
 			this.goToScene(firstSceneObj);
 			this.progress.focus();
+			this.loadAssets();
 		}
 
 		stopStreaming(withAlert) {

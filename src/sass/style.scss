@@ -90,6 +90,8 @@ button.start {
 #skip-to-intro {
 	margin: 10px 0 0 20px;
 	a {
+		display: table;
+		margin: auto;
 		position: absolute;
 		left: -999999px;
 		&:focus {

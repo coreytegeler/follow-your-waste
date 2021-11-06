@@ -385,7 +385,7 @@
     },
     {
       "slug": "pile",
-      "label": "N/A",
+      "label": "Compost Facility",
       "caption": "This food and yard waste from across New York City gets taken to regional composting facilities where it is made into finished compost.",
       "vocab1": null,
       "fact1": "Did you know that nearly ⅓ of everything we throw away in NYC is compostable? That means ⅓ of all of our waste can be converted into a natural soil amendment or be used to create renewable energy!",
@@ -396,7 +396,7 @@
     },
     {
       "slug": "composting",
-      "label": "N/A",
+      "label": "Processing",
       "caption": "Special teams of experts transform food scraps, leaves, branches, and food soiled paper into compost through a special process. First, they mix together the correct balance of food scraps, yard waste, and other organic matter. The right balance of “greens” (nitrogen-rich items like food scrap) and “browns” (carbon-rich items like dried leaves or wood chips) helps to make sure that all of the material will fully decompose with the right balance of nutrients.",
       "vocab1": null,
       "fact1": "What is composting? Just like food gets broken down in your stomach into nutrients and minerals, organic waste is broken down through the work of many organisms and chemistry!",
@@ -407,7 +407,7 @@
     },
     {
       "slug": "organisms",
-      "label": "N/A",
+      "label": "Microorganisms",
       "caption": "Over the course of a few weeks, the food scraps, leaves, and other materials break down into a material called compost. A lot of heat is created by the organisms during this process of decomposition. This heat destroys weed seeds and pathogens.",
       "vocab1": null,
       "fact1": "Industrial compost piles can reach up to 160°F! You don’t want the pile too hot for too long or it will destroy the microorganisms eating all the veggies!",
@@ -418,7 +418,7 @@
     },
     {
       "slug": "curing",
-      "label": "N/A",
+      "label": "Curing",
       "caption": "Eventually, the food and leaves will transform into a pile of something that looks like dark, crumbly soil. At this stage, the compost needs to “cure” to make sure that everything in the pile has fully decomposed.",
       "vocab1": null,
       "fact1": "Despite its appearance, compost is not the same thing as soil! Rather, compost is something called a soil amendment -- a natural fertilizer full of nutrients from broken down plants. Compost gets added to soil to help plants grow healthier and stronger!",
@@ -429,7 +429,7 @@
     },
     {
       "slug": "garden",
-      "label": "N/A",
+      "label": "Community Garden",
       "caption": "Congratulations—after it has fully cured, your organic waste has been transformed into nutrient-rich compost! The finished product then get s put into bags and distributed to schools, public parks, urban farmers, community gardeners, and even NYC residents, who can use the compost to grow their own fruits and veggies at home!",
       "vocab1": null,
       "fact1": null,

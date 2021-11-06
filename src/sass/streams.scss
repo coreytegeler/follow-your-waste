@@ -228,13 +228,13 @@ audio {
 		opacity: 0;
 		pointer-events: none;
 	}
+	@include lg-width {
+		max-width: unset;
+	}
 	@include md-width {
 		height: 100%;
 		width: 100%;
 		padding-left: 0;
-	}
-	@include sm-width {
-		
 	}
 }
 .chyron {
