@@ -5,7 +5,6 @@
  */
 
 module.exports = {
-  pathPrefix: "/",
   siteMetadata: {
     title: `Follow Your Waste`,
     lang: `en`,
