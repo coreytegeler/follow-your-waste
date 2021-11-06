@@ -766,11 +766,12 @@ const initSite = () => {
 			nextStreamElem.setAttribute("aria-hidden", false);
 
 			showView("streams");
-			
-			const firstSceneObj = this.scenes[`garage-${this.slug}`];
-			this.goToScene(firstSceneObj);
-			this.progress.focus();
 			this.loadAssets();
+			const firstSceneObj = this.scenes[`garage-${this.slug}`];
+			setTimeout(() => {
+				this.goToScene(firstSceneObj);
+			}, 100);
+			this.progress.focus();
 		}
 
 		stopStreaming(withAlert) {

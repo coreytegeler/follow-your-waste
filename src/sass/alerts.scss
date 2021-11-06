@@ -215,6 +215,9 @@ button {
 }
 
 #alert-select {
+	@include sm-width {
+		@include lg-text;
+	}
 	.alert-buttons {
 		display: block;
 	}
