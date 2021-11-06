@@ -58,18 +58,25 @@
 	transition: transform 800ms $ease;
 	pointer-events: none;
 	transform: translateY(400px);
+	@include lg-width {
+		margin: 0;
+	}
+	@include md-width {
+		width: 180px;
+		height: 245px;
+	}
 	img {
 		width: 220px;
 		height: auto;
 		position: absolute;
 		left: 0;
 		transform: translate3d(0, 0, 0);
+		@include md-width {
+			width: 180px;
+		}
 	}
 	.show-bins & {
 		transform: translateY(0px);
-	}
-	@include md-width {
-		margin: 0;
 	}
 }
 img.bin-front {
@@ -77,17 +84,28 @@ img.bin-front {
 }
 img.bin-lid {
 	position: absolute;
-	bottom: 107px;
+	bottom: 115px;
 	transition: transform 400ms $ease;
 	.organics & {
 		width: 232px;
 		left: 2px;
 		bottom: 122px;
 		transform-origin: right bottom;
+		@include md-width {
+			width: 190px;
+			left: 0px;
+			bottom: 100px;
+		}
+	}
+	@include md-width {
+		bottom: 95px;
 	}
 }
 img.bin-back {
 	bottom: 45%;
+	@include md-width {
+		bottom: 97px;
+	}
 }
 
 $bins: ("paper", "mgp", "landfill", "organics");
@@ -101,6 +119,9 @@ $bins: ("paper", "mgp", "landfill", "organics");
 		img.bin-lid {
 			@if $bin == "organics" {
 				transform: translateX(-13px) translateY(13px) rotate(45deg);
+				@include md-width {
+					transform: translateX(-10px) translateY(5px) rotate(45deg);
+				}
 			} @else {
 				transform: translateX(100px) translateY(-60px) rotate(45deg);
 			}
