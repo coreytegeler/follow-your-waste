@@ -64,7 +64,6 @@
 		position: absolute;
 		left: 0;
 		transform: translate3d(0, 0, 0);
-		margin-left: calc((25vw - 220px)/2);
 	}
 	.show-bins & {
 		transform: translateY(0px);
@@ -137,17 +136,13 @@ $bins: ("paper", "mgp", "landfill", "organics");
 	text-align: center;
 }
 #message-select-persist {
-	width: 100%;
+	width: 40%;
 	position: fixed;
 	top: 27px;
-	left: 0;
+	left: 30%;
 	z-index: 40;
 	pointer-events: none;
 	text-align: center;
-	@include md-width {
-		width: 40%;
-		left: 30%;
-	}
 	@include sm-width {
 		display: none;
 	}
