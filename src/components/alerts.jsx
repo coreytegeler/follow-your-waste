@@ -4,6 +4,22 @@ import { withPrefix } from "gatsby";
 export default function Alerts({ text }) {
 	return(
 		<div id="alerts-view" className="view" aria-hidden="true">
+
+			<audio
+				data-type="voice"
+				preload="auto"
+				controls={false}
+				aria-hidden={true}>
+				<source
+					src=""
+					type="audio/wav" />
+				<track
+					src=""
+					srcLang="en"
+					kind="captions" />
+			</audio>
+
+
 			<div className="view-inner">
 
 
@@ -12,7 +28,8 @@ export default function Alerts({ text }) {
 					role="dialog"
 					className="alert big"
 					id="alert-select-intro"
-					aria-hidden="true">
+					aria-hidden="true"
+					data-audio={withPrefix(`audio/misc/desc.wav`)}>
 					<div className="message" id="message-select-intro">
 						<div className="portrait">
 							<img
@@ -33,7 +50,7 @@ export default function Alerts({ text }) {
 							{text.system.im_ready}
 						</button>
 					</div>
-					<audio
+					{/*<audio
 						data-type="voice"
 						preload="auto"
 						controls={false}
@@ -45,7 +62,7 @@ export default function Alerts({ text }) {
 							src=""
 							srcLang="en"
 							kind="captions" />
-					</audio>
+					</audio>*/}
 				</div>
 
 
@@ -55,7 +72,8 @@ export default function Alerts({ text }) {
 					role="dialog"
 					className="alert"
 				  id="alert-not-trash"
-					aria-hidden="true">
+					aria-hidden="true"
+					data-audio={withPrefix(`audio/misc/not-trash.wav`)}>
 					<div className="message has-portrait" id="message-not-trash">
 						<p>{text.system.select_not_trash}</p>
 					</div>
@@ -75,7 +93,7 @@ export default function Alerts({ text }) {
 							{text.system.try_again}
 						</button>
 					</div>
-					<audio
+					{/*<audio
 						data-type="voice"
 						preload="auto"
 						controls={false}
@@ -87,7 +105,7 @@ export default function Alerts({ text }) {
 							src=""
 							srcLang="en"
 							kind="captions" />
-					</audio>
+					</audio>*/}
 				</div>
 
 				{/******* Wrong recycle *******/}
@@ -95,7 +113,8 @@ export default function Alerts({ text }) {
 					role="dialog"
 					className="alert"
 					id="alert-wrong-recycle"
-					aria-hidden="true">
+					aria-hidden="true"
+					data-audio={withPrefix(`audio/misc/wrong-recycle.wav`)}>
 					<div className="message has-portrait" id="message-wrong-recycle">
 						<p>{text.system.select_wrong_recycle}</p>
 					</div>
@@ -114,7 +133,7 @@ export default function Alerts({ text }) {
 							{text.system.try_again}
 						</button>
 					</div>
-					<audio
+					{/*<audio
 						data-type="voice"
 						preload="auto"
 						controls={false}
@@ -126,7 +145,7 @@ export default function Alerts({ text }) {
 							src=""
 							srcLang="en"
 							kind="captions" />
-					</audio>
+					</audio>*/}
 				</div>
 
 				{/******* Not recycle *******/}
@@ -134,7 +153,8 @@ export default function Alerts({ text }) {
 					role="dialog"
 					className="alert"
 					id="alert-not-recycle"
-					aria-hidden="true">
+					aria-hidden="true"
+					data-audio={withPrefix(`audio/misc/not-recycle.wav`)}>
 					<div className="message has-portrait" id="message-not-recycle">
 						<p>{text.system.select_not_recycle}</p>
 					</div>
@@ -154,7 +174,7 @@ export default function Alerts({ text }) {
 							{text.system.try_again}
 						</button>
 					</div>
-					<audio
+					{/*<audio
 						data-type="voice"
 						preload="auto"
 						controls={false}
@@ -166,7 +186,7 @@ export default function Alerts({ text }) {
 							src=""
 							srcLang="en"
 							kind="captions" />
-					</audio>
+					</audio>*/}
 				</div>
 
 				{/******* Correct bin *******/}
@@ -174,7 +194,8 @@ export default function Alerts({ text }) {
 					role="dialog"
 					className="alert"
 					id="alert-correct-bin"
-					aria-hidden="true">
+					aria-hidden="true"
+					data-audio={withPrefix(`audio/misc/correct-bin.wav`)}>
 					<div className="message has-portrait" id="message-correct-bin">
 						<p>{text.system.select_correct_bin}</p>
 					</div>
@@ -199,7 +220,7 @@ export default function Alerts({ text }) {
 							{text.system.lets_go}
 						</button>
 					</div>
-					<audio
+					{/*<audio
 						data-type="voice"
 						preload="auto"
 						controls={false}
@@ -211,7 +232,7 @@ export default function Alerts({ text }) {
 							src=""
 							srcLang="en"
 							kind="captions" />
-					</audio>
+					</audio>*/}
 				</div>
 
 				{/*******Streams intro*******/}

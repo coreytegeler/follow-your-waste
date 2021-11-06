@@ -8,9 +8,9 @@ const initSite = () => {
 	let itemsWrapPackery, streamIntrod;
 	const body = document.querySelector("body"),
 				docElem = document.documentElement,
-				volTog = document.querySelector("#volume-toggle"),
-				fullTog = document.querySelector("#full-toggle"),
-				helpTog = document.querySelector("#help-toggle"),
+				volTogBttn = document.querySelector("#volume-toggle"),
+				fullTogBttn = document.querySelector("#full-toggle"),
+				helpTogBttn = document.querySelector("#help-toggle"),
 				restartBttn = document.querySelector("#restart-button"),
 				introView = document.querySelector("#intro-view"),
 				introBttn = document.querySelector("#intro-button"),
@@ -20,6 +20,7 @@ const initSite = () => {
 				selectedItem = document.querySelector("#selected-item"),
 				binElems = document.querySelectorAll("#bins .bin"),
 				selectMenuBttns = document.querySelectorAll("#menu-select button"),
+				alertsAudioElem = document.querySelector("#alerts-view audio"),
 				streamsView = document.querySelector("#streams-view"),
 				streamElems = document.querySelectorAll(".stream"),
 				alertsView = document.querySelector("#alerts-view"),
@@ -127,14 +128,13 @@ const initSite = () => {
 		}
 	};
 
-
 	const playAudio = (elem) => {
 		if(body.classList.contains("mute")) return;
 		const type = elem.dataset.type;
 		$(elem).prop("volume", 0);
 		elem.currentTime = 0;
 		const playPromise = elem.play();
-		if (playPromise !== undefined) {
+		if(playPromise !== undefined) {
 			playPromise.then(() => {
 				$(elem).animate({
 					volume: volMax[type]
@@ -159,7 +159,7 @@ const initSite = () => {
 		$(elem).animate({
 			volume: 0
 		}, fadeOutDur[type]);
-		volTog.setAttribute("aria-pressed", false);
+		volTogBttn.setAttribute("aria-pressed", false);
 	};
 
 	const unmuteAudio = (elem) => {
@@ -168,7 +168,7 @@ const initSite = () => {
 		$(elem).animate({
 			volume: volMax[type]
 		}, fadeInDur[type]);
-		volTog.setAttribute("aria-pressed", false);
+		volTogBttn.setAttribute("aria-pressed", false);
 	};
 
 	const toggleAudio = (elem) => {
@@ -179,7 +179,7 @@ const initSite = () => {
 		}
 	};
 
-	const toggleVolume = () => {
+	const toggleVolumeBttn = () => {
 		body.classList.toggle("mute");
 		const currSceneObj = globals.scene,
 					currAlertAudioElem = document.querySelector(".alert.show audio");
@@ -195,17 +195,17 @@ const initSite = () => {
 			toggleAudio(currAlertAudioElem);
 		}
 
-		volTog.blur();
+		volTogBttn.blur();
 	}
 
 	const toggleFullscreen = (e) => {
 		body.classList.toggle("full");
 		if(body.classList.contains("full")) {
 			openFullscreen();
-			fullTog.setAttribute("aria-pressed", true);
+			fullTogBttn.setAttribute("aria-pressed", true);
 		} else {
 			closeFullscreen();
-			fullTog.setAttribute("aria-pressed", false);
+			fullTogBttn.setAttribute("aria-pressed", false);
 		}
 	};
 
@@ -238,7 +238,7 @@ const initSite = () => {
 	});
 
 
-	window.addEventListener("visibilitychange", (e) => {
+	document.addEventListener("visibilitychange", (e) => {
 		const audioElems = document.querySelectorAll("audio");
 		audioElems.forEach((audioElem) => {
 			if(document.visibilityState === "visible") {
@@ -249,15 +249,16 @@ const initSite = () => {
 		});
 	});
 
+
 	if(docElem.requestFullscreen) {
-		if(fullTog) {
-			fullTog.addEventListener("click", () => {
+		if(fullTogBttn) {
+			fullTogBttn.addEventListener("click", () => {
 				toggleFullscreen();
 			});
 		}
 
-		if(helpTog) {
-			helpTog.addEventListener("click", () => {
+		if(helpTogBttn) {
+			helpTogBttn.addEventListener("click", () => {
 				if(body.classList.contains("alerts")) {
 					closeAlert();
 				} else {
@@ -277,9 +278,9 @@ const initSite = () => {
 		});
 	}
 
-	if(volTog) {
-		volTog.addEventListener("click", () => {
-			toggleVolume();
+	if(volTogBttn) {
+		volTogBttn.addEventListener("click", () => {
+			toggleVolumeBttn();
 		});
 	}
 
@@ -304,7 +305,7 @@ const initSite = () => {
 		const alertElem = document.querySelector(`#alert-${alertSlug}`),
 					okayBttnElem = alertElem.querySelector(".okay"),
 					cancelBttnElem = alertElem.querySelector(".cancel"),
-					audioElem = alertElem.querySelector("audio");
+					audioSrc = alertElem.getAttribute("data-audio");
 
 		if("activeElement" in document) {
 			document.activeElement.blur();
@@ -314,8 +315,9 @@ const initSite = () => {
 		body.classList.add("alerts");
 		body.setAttribute("aria-hidden", false);
 
-		if(audioElem) {
-			playAudio(audioElem);
+		if(audioSrc) {
+			alertsAudioElem.src = audioSrc;
+			playAudio(alertsAudioElem);
 		}
 
 		if(okayBttnElem) {
@@ -355,10 +357,9 @@ const initSite = () => {
 	};
 
 	const closeAlert = () => {
-		const alertElem = document.querySelector(".alert.show"),
-					audioElem = alertElem.querySelector("audio");
+		const alertElem = document.querySelector(".alert.show");
 		body.classList.remove("alerts");
-		pauseAudio(audioElem);
+		pauseAudio(alertsAudioElem);
 
 		setTimeout(() => {
 			alertElem.classList.remove("show");
@@ -377,12 +378,12 @@ const initSite = () => {
 			itemsObj[slug] = itemObj;
 		});
 
-		selectMenuBttns.forEach( (buttonElem) => {
-			buttonElem.onclick = (e) => {
+		selectMenuBttns.forEach( (bttnElem) => {
+			bttnElem.onclick = (e) => {
 				const selectAlert = document.querySelector("#alert-select"),
-							streamSlug = buttonElem.dataset.stream,
+							streamSlug = bttnElem.dataset.stream,
 							streamObj = streams[streamSlug],
-							itemImg = buttonElem.querySelector("img");
+							itemImg = bttnElem.querySelector("img");
 				selectedItem.src = itemImg.src;
 				selectAlert.classList.remove("show");
 				body.classList.remove("alerts");

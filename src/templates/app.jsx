@@ -45,7 +45,7 @@ const App = ({ pageContext }) => {
 	const text = langObjs[lang].text;
 
 	return (
-		<div>
+		<React.Fragment>
 		
 			<Helmet
 				title={`${text.system.title} — ${text.system.tagline}`}
@@ -73,7 +73,7 @@ const App = ({ pageContext }) => {
 				<Alerts text={text} />
 			</main>
 
-		</div>
+		</React.Fragment>
 	);
 };
 

@@ -42,23 +42,12 @@
 	justify-content: center;
 	flex: 1;
 	pointer-events: none;
-	body.alerts & {
-		&#bins {
-			
-		}
-		&#bins-back {
-			
-		}
-	}
 }
 #bins {
-	z-index: 61;
-	body.intro & {
-		display: none;
-	}
+	z-index: 70;
 }
 #bin-backs {
-	z-index: 60;
+	z-index: 50;
 }
 .bin {
 	width: 220px;
@@ -75,9 +64,13 @@
 		position: absolute;
 		left: 0;
 		transform: translate3d(0, 0, 0);
+		margin-left: calc((25vw - 220px)/2);
 	}
 	.show-bins & {
 		transform: translateY(0px);
+	}
+	@include md-width {
+		margin: 0;
 	}
 }
 img.bin-front {
@@ -106,7 +99,6 @@ $bins: ("paper", "mgp", "landfill", "organics");
 		transition-delay: #{$i * 50ms};
 	}
 	[data-bin="#{$bin}"] .bin.#{$bin} {
-		// transform: translateX(1px);
 		img.bin-lid {
 			@if $bin == "organics" {
 				transform: translateX(-13px) translateY(13px) rotate(45deg);
@@ -153,6 +145,10 @@ $bins: ("paper", "mgp", "landfill", "organics");
 	pointer-events: none;
 	text-align: center;
 	@include md-width {
+		width: 40%;
+		left: 30%;
+	}
+	@include sm-width {
 		display: none;
 	}
 }
@@ -174,12 +170,10 @@ $bins: ("paper", "mgp", "landfill", "organics");
 			transition-duration: 800ms;	
 		}
 	}
-	body:not(.dragging):not(.alerts) &.hovering {
-		z-index: 70 !important;
-	}
-	.dragging &.hovering,
+	body:not(.alerts) &.hovering,
+	&.is-dragging,
 	&.dropping {
-		z-index: 22 !important;
+		z-index: 60 !important;
 	}
 	.dragging & .tooltip,
 	&.dropping .tooltip,

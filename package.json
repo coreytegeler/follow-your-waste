@@ -1,8 +1,8 @@
 {
   "name": "follow-your-waste",
-  "version": "0.9.8",
+  "version": "0.9.9",
   "description": "The everyday story of your waste, as told by New York’s Strongest.",
-  "author": "",
+  "author": "Corey Tegeler",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -10,12 +10,12 @@
   },
   "scripts": {
     "start": "gatsby develop",
-    "start-mobile": "gatsby develop -H 0.0.0.0 -p 8000 --verbose",
+    "start:mobile": "gatsby develop -H 0.0.0.0 -p 8000 --verbose",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public -b gh-pages",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "serve": "gatsby serve -p 9001",
-    "serve-mobile": "gatsby serve -H 0.0.0.0 -p 9001",
+    "serve:mobile": "gatsby serve -H 0.0.0.0 -p 9001 --verbose",
     "clean": "gatsby clean"
   },
   "dependencies": {

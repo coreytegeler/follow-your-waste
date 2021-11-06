@@ -16,7 +16,7 @@ export default function Intro({ text }) {
           </div>
           <div id="intro-bottom">
             <div id="loading">
-              <img src="images/loading.png" />
+              <img src="images/loading.png" alt="" />
               <span aria-hidden="true">
                 {text.system.loading}
               </span>

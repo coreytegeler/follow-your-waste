@@ -6,11 +6,14 @@
 	opacity: 0;
 	pointer-events: none;
 	transition: opacity 500ms $ease;
-	z-index: 50;
+	z-index: 60;
 	.view-inner {
 		max-width: unset;
 		display: flex;
 		align-content: center;
+	}
+	body#select.alerts & {
+		z-index: 80;
 	}
 }
 .alert {
