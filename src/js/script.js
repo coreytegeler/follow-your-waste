@@ -5,7 +5,7 @@ import Draggabilly from "draggabilly";
 import Packery from "packery";
 
 const initSite = () => {
-	let itemsWrapPackery, streamIntrod;
+	let itemsWrapPackery;
 	const body = document.querySelector("body"),
 				docElem = document.documentElement,
 				volTogBttn = document.querySelector("#volume-toggle"),
@@ -721,16 +721,16 @@ const initSite = () => {
 			self.loadAssets();
 			toggleSelectElems(false, () => {
 				selectView.classList.remove("show");
-				if(!streamIntrod && window.innerWidth >= 640) {
-					streamIntrod = true;
-					openAlert("streams-intro", () => {
-						self.startStreaming();
-					});
-				} else {
-					self.startStreaming();
-				}
+				// if(!streamIntrod && window.innerWidth >= 640) {
+				// 	streamIntrod = true;
+				// 	openAlert("streams-intro", () => {
+				// 		self.startStreaming();
+				// 	});
+				// } else {
+				// 	self.startStreaming();
+				// }
+				self.startStreaming();
 			});
-
 		}
 
 		loadAssets() {
