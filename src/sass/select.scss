@@ -193,7 +193,8 @@ $bins: ("paper", "mgp", "landfill", "organics");
 	}
 	body:not(.alerts) &.hovering,
 	&.is-dragging,
-	&.dropping {
+	&.dropping,
+	&.top {
 		z-index: 60 !important;
 	}
 	.dragging & .tooltip,

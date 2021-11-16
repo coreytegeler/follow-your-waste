@@ -139,29 +139,40 @@ const initSite = () => {
 	};
 
 	const playAudio = (elem) => {
-		if(body.classList.contains("mute")) return;
-		const type = elem.dataset.type;
+		const type = elem.dataset.type;;
+
 		$(elem).prop("volume", 0);
 		elem.currentTime = 0;
+
 		const playPromise = elem.play();
+
 		if(playPromise !== undefined) {
 			playPromise.then(() => {
+				if(body.classList.contains("mute")) return;
 				$(elem).animate({
 					volume: volMax[type]
 				}, fadeInDur[type]);
 			}).catch((error) => {
-				console.warn(error);
+				console.warn("On play:", error);
 			});
 		}
 	};
 
 	const pauseAudio = (elem) => {
-		$(elem).animate({
-			volume: 0
-		}, 100, (e) => {
-			elem.pause();
-			elem.currentTime = 0;
-		});
+		const playPromise = elem.play();
+
+		if(playPromise !== undefined) {
+			playPromise.then(() => {
+				$(elem).animate({
+					volume: 0
+				}, 100, (e) => {
+					elem.pause();
+					elem.currentTime = 0;
+				});
+			}).catch((error) => {
+				console.warn("On pause:", error);
+			});
+		}
 	};
 
 	const muteAudio = (elem) => {
@@ -473,6 +484,7 @@ const initSite = () => {
 
 			elem.onmouseover = () => {
 				elem.classList.add("hovering");
+				itemsWrap.appendChild(elem);
 				self.fixTooltip();
 			};
 
@@ -1006,8 +1018,6 @@ const initSite = () => {
 						captionElem = this.caption,
 						voiceAudioElem = this.voiceover,
 						factoidElems = this.factoids;
-
-			console.log(this.factoids);
 			if(tickElem) {
 				tickElem.onclick = () => {
 					const stream = self.stream;
@@ -1035,7 +1045,6 @@ const initSite = () => {
 
 			factoidElems.forEach((factoidElem) => {
 				const tabElem = factoidElem.querySelector(".factoid-tab");
-				console.log(tabElem);
 				tabElem.onclick = (e) => {
 					factoidElem.classList.toggle("open");
 				};

@@ -50,19 +50,6 @@ export default function Alerts({ text }) {
 							{text.system.im_ready}
 						</button>
 					</div>
-					{/*<audio
-						data-type="voice"
-						preload="auto"
-						controls={false}
-						aria-hidden={true}>
-						<source
-							src={withPrefix(`audio/misc/desc.wav`)}
-							type="audio/wav" />
-						<track
-							src=""
-							srcLang="en"
-							kind="captions" />
-					</audio>*/}
 				</div>
 
 
@@ -93,19 +80,6 @@ export default function Alerts({ text }) {
 							{text.system.try_again}
 						</button>
 					</div>
-					{/*<audio
-						data-type="voice"
-						preload="auto"
-						controls={false}
-						aria-hidden={true}>
-						<source
-							src={withPrefix(`audio/misc/not-trash.wav`)}
-							type="audio/wav" />
-						<track
-							src=""
-							srcLang="en"
-							kind="captions" />
-					</audio>*/}
 				</div>
 
 				{/******* Wrong recycle *******/}
@@ -133,19 +107,6 @@ export default function Alerts({ text }) {
 							{text.system.try_again}
 						</button>
 					</div>
-					{/*<audio
-						data-type="voice"
-						preload="auto"
-						controls={false}
-						aria-hidden={true}>
-						<source
-							src={withPrefix(`audio/misc/wrong-recycle.wav`)}
-							type="audio/wav" />
-						<track
-							src=""
-							srcLang="en"
-							kind="captions" />
-					</audio>*/}
 				</div>
 
 				{/******* Not recycle *******/}
@@ -174,19 +135,6 @@ export default function Alerts({ text }) {
 							{text.system.try_again}
 						</button>
 					</div>
-					{/*<audio
-						data-type="voice"
-						preload="auto"
-						controls={false}
-						aria-hidden={true}>
-						<source
-							src={withPrefix(`audio/misc/not-recycle.wav`)}
-							type="audio/wav" />
-						<track
-							src=""
-							srcLang="en"
-							kind="captions" />
-					</audio>*/}
 				</div>
 
 				{/******* Correct bin *******/}
@@ -220,19 +168,6 @@ export default function Alerts({ text }) {
 							{text.system.lets_go}
 						</button>
 					</div>
-					{/*<audio
-						data-type="voice"
-						preload="auto"
-						controls={false}
-						aria-hidden={true}>
-						<source
-							src={withPrefix(`audio/misc/correct-bin.wav`)}
-							type="audio/wav" />
-						<track
-							src=""
-							srcLang="en"
-							kind="captions" />
-					</audio>*/}
 				</div>
 
 				{/*******Streams intro*******/}
