@@ -68,7 +68,7 @@ export default function Streams({ text, data }) {
 									const sceneText = streamText[j];
 									let svgSrc;
 									if(sceneData.animated === "true") {
-										svgSrc = withPrefix(`scenes/animate/${sceneData.slug}/${sceneData.slug}.json`);
+										svgSrc = withPrefix(`scenes/animate/${sceneData.slug}.json`);
 									} else {
 										svgSrc = withPrefix(`scenes/static/${sceneData.slug}.svg`);
 									}
@@ -143,6 +143,31 @@ export default function Streams({ text, data }) {
 																className="text">
 																{sceneText.caption}
 															</div>
+
+															{Array.apply(null, { length: 3 }).map((x, l) => {
+																const vocab = sceneText["vocab" + l],
+																			fact = sceneText["fact" + l];
+																return fact ? (
+																	<div
+																		className="factoid mobile-show"
+																		data-index={l}
+																		data-vocab={vocab}
+																		tabIndex={-1}
+																		key={l}>
+																		<div className="factoid-inner">
+																			<p>
+																				{vocab ? (
+																					<span className="vocab">{vocab}</span>
+																				) : (
+																					false
+																				)}
+																				{fact}
+																			</p>
+																		</div>
+																	</div>
+																) : null;
+															})}
+
 															<audio
 																data-type="voice"
 																preload="none"

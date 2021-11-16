@@ -275,9 +275,9 @@ audio {
 		}
 		@include md-width {
 			width: 80px;
-			height: 80px;
-			top: -30px;
-			left: 10px;
+			height: 90px;
+			top: 35px;
+			left: 30px;
 		}
 	}
 }
@@ -295,7 +295,7 @@ audio {
 		outline: none;
 		@include md-width {
 			height: 100%;
-			padding: 8px 15px 20px 15px;
+			padding: 20px 15px 20px 15px;
 			overflow-y: scroll;
 			-webkit-overflow-scroll: touch;
 		}
@@ -310,10 +310,18 @@ audio {
 				&::before {
 					content: "";
 					width: 80px;
-					height: 50px;
+					height: 80px;
 					display: block;
 					float: left;
 				}
+			}
+			@include sm-width {
+				min-height: 120px;
+				padding: 20px;
+				margin-bottom: 15px;
+				background-color: $darken;
+				border: 3px solid;
+				border-radius: 30px;
 			}
 		}
 		.vocab {
@@ -454,6 +462,7 @@ $lighter-amt: 30%;
 	.factoid .vocab {
 		color: lighten($blue, $lighter-amt);
 	}
+	.text,
 	.chyron-inner,
 	.factoid-inner,
 	.factoid-inner::before,
@@ -469,6 +478,7 @@ $lighter-amt: 30%;
 	.factoid .vocab {
 		color: lighten($orange, $light-amt);
 	}
+	.text,
 	.chyron-inner,
 	.factoid-inner,
 	.factoid-inner::before,
@@ -484,6 +494,7 @@ $lighter-amt: 30%;
 	.factoid .vocab {
 		color: lighten($red, $lighter-amt);
 	}
+	.text,
 	.chyron-inner,
 	.factoid-inner,
 	.factoid-inner::before,
@@ -499,6 +510,7 @@ $lighter-amt: 30%;
 	.factoid .vocab {
 		color: lighten($green, $light-amt);
 	}
+	.text,
 	.chyron-inner,
 	.factoid-inner,
 	.factoid-inner::before,
@@ -514,6 +526,7 @@ $lighter-amt: 30%;
 	.factoid .vocab {
 		color: lighten($pink, $light-amt);
 	}
+	.text,
 	.chyron-inner,
 	.factoid-inner,
 	.factoid-inner::before,
@@ -529,6 +542,7 @@ $lighter-amt: 30%;
 	.factoid .vocab {
 		color: lighten($teal, $light-amt);
 	}
+	.text,
 	.chyron-inner,
 	.factoid-inner,
 	.factoid-inner::before,
@@ -555,21 +569,27 @@ $lighter-amt: 30%;
 	}
 }
 .factoid {
-	width: 50%;
-	min-width: 400px;
-	max-width: 600px;
-	margin: 0 0 15px 3px;
-	position: relative;
-	transition: transform 300ms $ease;
-	transform: translateX(70px);
+	.scene & {
+		position: relative;
+		width: 50%;
+		min-width: 400px;
+		max-width: 600px;
+		margin: 0 0 15px 3px;
+		transition: transform 300ms $ease;
+		transform: translateX(70px);
+		.alerts & {
+			transform: translateX(70px) !important;
+		}
+	}
 	.scene.show & {
 		transform: none;
+		&.open {
+			transform: translateX(-100%);
+		}
 	}
-	.scene.show &.open {
-		transform: translateX(-100%);
-	}
-	.alerts & {
-		transform: translateX(70px) !important;
+	.caption & {
+		margin: 20px 0 0 0;
+    clear: both;
 	}
 	&:focus {
 		outline: none;
@@ -628,16 +648,23 @@ $lighter-amt: 30%;
 	}
 }
 .factoid-inner {
-	width: 100%;
-	min-height: 80px;
-	padding: 15px 20px 20px 20px;
 	background-color: $darken;
 	color: white;
-	border-radius: 0 0 0 20px;
-	position: relative;
-	user-select: text;
 	border-style: solid;
-	border-width: 3px 0;
+	.scene & {
+		width: 100%;
+		min-height: 80px;
+		padding: 15px 20px 20px 20px;
+		position: relative;
+		border-width: 3px 0;
+		border-radius: 0 0 0 20px;
+		user-select: text;
+	}
+	.caption & {
+		padding: 10px 15px 15px 15px;
+		border-width: 3px;
+		border-radius: 20px;
+	}
 	.vocab {
 		text-transform: capitalize;
 		&::after {
@@ -659,5 +686,8 @@ $lighter-amt: 30%;
     top: 60px;
     border-left: solid 3px;
     border-radius: 0 0 0 20px;
+    @include sm-width {
+    	display: none;
+    }
 	}
 }

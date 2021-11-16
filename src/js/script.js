@@ -19,7 +19,6 @@ const initSite = () => {
 				itemElems = document.querySelectorAll(".item"),
 				selectedItem = document.querySelector("#selected-item"),
 				binElems = document.querySelectorAll("#bins .bin"),
-				selectMenuBttns = document.querySelectorAll("#menu-select button"),
 				alertsAudioElem = document.querySelector("#alerts-view audio"),
 				streamsView = document.querySelector("#streams-view"),
 				streamElems = document.querySelectorAll(".stream"),
@@ -54,14 +53,25 @@ const initSite = () => {
 				packeryDur = 300;
 
 	window.onresize = () => {
-		scenesArr.forEach( (sceneObj) => {
+		const size = getSize();
+
+		scenesArr.forEach((sceneObj) => {
 			if(sceneObj.marker) {
 				sceneObj.fixTooltip();
 			}
 		});
+
 		if(body.id === "select" && itemsWrap.classList.contains("setup")) {
 			itemsWrapPackery.layout();
 		}
+
+		Object.keys(itemsObj).forEach((key) => {
+			if(size === "sm") {
+				itemsObj[key].draggie.disable();
+			} else {
+				itemsObj[key].draggie.enable();
+			}
+		});
 	};
 
 	document.onkeydown = (e) => {
@@ -229,6 +239,11 @@ const initSite = () => {
 		}
 	};
 
+	const getSize = () => {
+		return window.getComputedStyle(body).getPropertyValue("content").replace(/"([^"]+(?="))"/g, "$1");
+		
+	}
+
 	window.addEventListener("onfullscreenchange", (e) => {
 		if(document.fullscreenElement) {
 			body.classList.add("full");
@@ -377,19 +392,6 @@ const initSite = () => {
 						itemObj = new Item(itemElem);
 			itemsObj[slug] = itemObj;
 		});
-
-		selectMenuBttns.forEach( (bttnElem) => {
-			bttnElem.onclick = (e) => {
-				const selectAlert = document.querySelector("#alert-select"),
-							streamSlug = bttnElem.dataset.stream,
-							streamObj = streams[streamSlug],
-							itemImg = bttnElem.querySelector("img");
-				selectedItem.src = itemImg.src;
-				selectAlert.classList.remove("show");
-				body.classList.remove("alerts");
-				streamObj.introStreams();
-			};
-		});
 	};
 
 	const handleSelect = () => {
@@ -400,7 +402,7 @@ const initSite = () => {
 				transitionDuration: packeryDur,
 				initLayout: false,
 				resize: true,
-				stamp: "#stamp"
+				stamp: ".stamp"
 			});
 			itemsWrapPackery.layout();
 			itemsWrap.classList.add("setup");
@@ -466,7 +468,7 @@ const initSite = () => {
 			this.draggie = new Draggabilly(this.elem);
 
 			this.draggie.on("dragStart", this.onDragStart.bind(this));
-			this.draggie.on("dragMove", this.onDrag.bind(this));
+			this.draggie.on("dragMove", this.onDragMove.bind(this));
 			this.draggie.on("dragEnd", this.onDragEnd.bind(this));
 
 			elem.onmouseover = () => {
@@ -477,13 +479,17 @@ const initSite = () => {
 			elem.onmouseleave = () => {
 				elem.classList.remove("hovering");
 			};
+
+			elem.onclick = () => {
+				if(getSize() === "sm") self.onTap();
+			}
 		}
 
 		onDragStart(e) {
 			body.classList.add("dragging");
 		}
 
-		onDrag(e) {
+		onDragMove(e) {
 			const itemElem = this.elem,
 						itemBounds = itemElem.getBoundingClientRect();
 			this.fixTooltip();
@@ -644,6 +650,11 @@ const initSite = () => {
 			}
 			tooltipInner.style.left = newLeft + "px";
 		}
+
+		onTap() {
+			selectedItem.src = this.elem.querySelector("img");
+			streams[this.stream].introStreams();
+		}
 	}
 
 	/************************************/
@@ -765,8 +776,8 @@ const initSite = () => {
 			nextStreamElem.classList.add("show");
 			nextStreamElem.setAttribute("aria-hidden", false);
 
-			showView("streams");
 			this.loadAssets();
+			showView("streams");
 			const firstSceneObj = this.scenes[`garage-${this.slug}`];
 			setTimeout(() => {
 				this.goToScene(firstSceneObj);
@@ -951,7 +962,6 @@ const initSite = () => {
 		getAnimation() {
 			const self = this,
 						looped = this.elem.dataset.looped === "true";
-
 			const animation = lottie.loadAnimation({
 				container: this.svgWrap,
 				renderer: "svg",
@@ -997,6 +1007,7 @@ const initSite = () => {
 						voiceAudioElem = this.voiceover,
 						factoidElems = this.factoids;
 
+			console.log(this.factoids);
 			if(tickElem) {
 				tickElem.onclick = () => {
 					const stream = self.stream;
@@ -1022,8 +1033,9 @@ const initSite = () => {
 				};
 			}
 
-			factoidElems.forEach( (factoidElem) => {
+			factoidElems.forEach((factoidElem) => {
 				const tabElem = factoidElem.querySelector(".factoid-tab");
+				console.log(tabElem);
 				tabElem.onclick = (e) => {
 					factoidElem.classList.toggle("open");
 				};
