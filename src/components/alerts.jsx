@@ -17,7 +17,7 @@ export default function Alerts({ text }) {
 					<div className="message" id="message-select-intro">
 						<div className="portrait">
 							<img
-								src={withPrefix(`images/workers/chief.png`)}
+								src={withPrefix(`images/worker-chief.png`)}
 								alt="" />
 						</div>
 						<p>{text.system.select_intro}</p>
@@ -60,7 +60,7 @@ export default function Alerts({ text }) {
 					</div>
 					<div className="portrait">
 						<img
-							src={withPrefix(`images/workers/chief.png`)}
+							src={withPrefix(`images/worker-chief.png`)}
 							alt="" />
 					</div>
 					<div
@@ -100,7 +100,7 @@ export default function Alerts({ text }) {
 					</div>
 					<div className="portrait">
 						<img
-							src={withPrefix(`images/workers/chief.png`)}
+							src={withPrefix(`images/worker-chief.png`)}
 							alt="" />
 					</div>
 					<div role="menu"
@@ -139,7 +139,7 @@ export default function Alerts({ text }) {
 					</div>
 					<div className="portrait">
 						<img
-							src={withPrefix(`images/workers/chief.png`)}
+							src={withPrefix(`images/worker-chief.png`)}
 							alt="" />
 					</div>
 					<div
@@ -179,7 +179,7 @@ export default function Alerts({ text }) {
 					</div>
 					<div className="portrait">
 						<img
-							src={withPrefix(`images/workers/chief.png`)}
+							src={withPrefix(`images/worker-chief.png`)}
 							alt="" />
 					</div>
 					<div
