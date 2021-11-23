@@ -14,7 +14,7 @@
 <pattern id="press_pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#press_image2" transform="translate(-0.000122614) scale(0.0011201 0.000724638)"/>
 </pattern>
-<image id="press_image0" width="2000" height="1083" xlink:href="images/scenes/press0.png"/>
-<image id="press_image1" width="893" height="1380" xlink:href="images/scenes/press1.png"/>
+<image id="press_image0" width="2000" height="1083" xlink:href="/images/scenes/press0.png"/>
+<image id="press_image1" width="893" height="1380" xlink:href="/images/scenes/press1.png"/>
 </defs>
 </svg>

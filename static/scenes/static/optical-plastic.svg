@@ -18,9 +18,9 @@
 <pattern id="optical-plastic_pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#optical-plastic_image3" transform="translate(0 -0.000388113) scale(0.00598802 0.0105345)"/>
 </pattern>
-<image id="optical-plastic_image0" width="3515" height="1443" xlink:href="images/scenes/optical-plastic0.png"/>
-<image id="optical-plastic_image1" width="250" height="206" xlink:href="images/scenes/optical-plastic1.png"/>
-<image id="optical-plastic_image2" width="555" height="140" xlink:href="images/scenes/optical-plastic2.png"/>
-<image id="optical-plastic_image3" width="167" height="95" xlink:href="images/scenes/optical-plastic3.png"/>
+<image id="optical-plastic_image0" width="3515" height="1443" xlink:href="/images/scenes/optical-plastic0.png"/>
+<image id="optical-plastic_image1" width="250" height="206" xlink:href="/images/scenes/optical-plastic1.png"/>
+<image id="optical-plastic_image2" width="555" height="140" xlink:href="/images/scenes/optical-plastic2.png"/>
+<image id="optical-plastic_image3" width="167" height="95" xlink:href="/images/scenes/optical-plastic3.png"/>
 </defs>
 </svg>

@@ -10,7 +10,7 @@
 <pattern id="quality_pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#quality_image1" transform="scale(0.002457 0.00121803)"/>
 </pattern>
-<image id="quality_image0" width="1440" height="821" xlink:href="images/scenes/quality-paper0.png"/>
-<image id="quality_image1" width="407" height="821" xlink:href="images/scenes/quality-paper1.png"/>
+<image id="quality_image0" width="1440" height="821" xlink:href="/images/scenes/quality-paper0.png"/>
+<image id="quality_image1" width="407" height="821" xlink:href="/images/scenes/quality-paper1.png"/>
 </defs>
 </svg>

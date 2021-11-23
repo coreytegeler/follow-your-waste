@@ -24,9 +24,9 @@
 <pattern id="composting_pattern5" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#composting_image1" transform="translate(0 -0.00172368) scale(0.00119332 0.000972333)"/>
 </pattern>
-<image id="composting_image0" width="1441" height="1352" xlink:href="images/scenes/composting0.png"/>
-<image id="composting_image1" width="838" height="1032" xlink:href="images/scenes/composting1.png"/>
-<image id="composting_image2" width="1289" height="1636" xlink:href="images/scenes/composting2.png"/>
-<image id="composting_image3" width="1467" height="1577" xlink:href="images/scenes/composting3.png"/>
+<image id="composting_image0" width="1441" height="1352" xlink:href="/images/scenes/composting0.png"/>
+<image id="composting_image1" width="838" height="1032" xlink:href="/images/scenes/composting1.png"/>
+<image id="composting_image2" width="1289" height="1636" xlink:href="/images/scenes/composting2.png"/>
+<image id="composting_image3" width="1467" height="1577" xlink:href="/images/scenes/composting3.png"/>
 </defs>
 </svg>

@@ -18,8 +18,8 @@
 <pattern id="trommel_pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#trommel_image2" transform="translate(-0.00588479) scale(0.00361346 0.00199601)"/>
 </pattern>
-<image id="trommel_image0" width="1200" height="1249" xlink:href="images/scenes/trommel0.png"/>
-<image id="trommel_image1" width="576" height="1052" xlink:href="images/items/soda-can.png"/>
-<image id="trommel_image2" width="280" height="501" xlink:href="images/items/food-can.png"/>
+<image id="trommel_image0" width="1200" height="1249" xlink:href="/images/scenes/trommel0.png"/>
+<image id="trommel_image1" width="576" height="1052" xlink:href="/images/items/soda-can.png"/>
+<image id="trommel_image2" width="280" height="501" xlink:href="/images/items/food-can.png"/>
 </defs>
 </svg>

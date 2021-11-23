@@ -24,10 +24,10 @@
 <pattern id="magnets_pattern4" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#magnets_image4" transform="translate(-0.00588479) scale(0.00361346 0.00199601)"/>
 </pattern>
-<image id="magnets_image0" width="1200" height="994" xlink:href="images/scenes/magnets0.png"/>
-<image id="magnets_image1" width="713" height="773" xlink:href="images/scenes/magnets1.png"/>
-<image id="magnets_image2" width="607" height="699" xlink:href="images/scenes/magnets2.png"/>
-<image id="magnets_image3" width="576" height="1052" xlink:href="images/items/soda-can.png"/>
-<image id="magnets_image4" width="280" height="501" xlink:href="images/items/food-can.png"/>
+<image id="magnets_image0" width="1200" height="994" xlink:href="/images/scenes/magnets0.png"/>
+<image id="magnets_image1" width="713" height="773" xlink:href="/images/scenes/magnets1.png"/>
+<image id="magnets_image2" width="607" height="699" xlink:href="/images/scenes/magnets2.png"/>
+<image id="magnets_image3" width="576" height="1052" xlink:href="/images/items/soda-can.png"/>
+<image id="magnets_image4" width="280" height="501" xlink:href="/images/items/food-can.png"/>
 </defs>
 </svg>

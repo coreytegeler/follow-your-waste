@@ -4,6 +4,6 @@
 <pattern id="quality-plastic-pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#quality-plastic-image0" transform="translate(0 -0.000341259) scale(0.0005 0.000648951)"/>
 </pattern>
-<image id="quality-plastic-image0" width="2000" height="1542" xlink:href="images/scenes/quality-plastic0.png"/>
+<image id="quality-plastic-image0" width="2000" height="1542" xlink:href="/images/scenes/quality-plastic0.png"/>
 </defs>
 </svg>

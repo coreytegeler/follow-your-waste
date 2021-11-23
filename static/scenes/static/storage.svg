@@ -4,6 +4,6 @@
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0" transform="translate(0 -0.000539554) scale(0.0004 0.000584401)"/>
 </pattern>
-<image id="image0" width="2500" height="1713" xlink:href="images/scenes/storage0.png"/>
+<image id="image0" width="2500" height="1713" xlink:href="/images/scenes/storage0.png"/>
 </defs>
 </svg>

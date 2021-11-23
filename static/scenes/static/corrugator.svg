@@ -6,6 +6,6 @@
 <pattern id="corrugator_pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#corrugator_image0" transform="scale(0.000694444 0.00121803)"/>
 </pattern>
-<image id="corrugator_image0" width="1440" height="821" xlink:href="images/scenes/corrugator0.png"/>
+<image id="corrugator_image0" width="1440" height="821" xlink:href="/images/scenes/corrugator0.png"/>
 </defs>
 </svg>

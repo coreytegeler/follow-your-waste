@@ -14,8 +14,8 @@
 <pattern id="winder_pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#winder_image2" transform="translate(0 -0.00138075) scale(0.00188324 0.000844786)"/>
 </pattern>
-<image id="winder_image0" data-name="Art_Paper_7_yellowlines.png" width="1553" height="343" xlink:href="images/scenes/winder0.png"/>
-<image id="winder_image1" data-name="Art_Paper_7_paperroll.png" width="455" height="821" xlink:href="images/scenes/winder1.png"/>
-<image id="winder_image2" data-name="Art_Paper_7_worker.png" width="531" height="1187" xlink:href="images/scenes/winder2.png"/>
+<image id="winder_image0" data-name="Art_Paper_7_yellowlines.png" width="1553" height="343" xlink:href="/images/scenes/winder0.png"/>
+<image id="winder_image1" data-name="Art_Paper_7_paperroll.png" width="455" height="821" xlink:href="/images/scenes/winder1.png"/>
+<image id="winder_image2" data-name="Art_Paper_7_worker.png" width="531" height="1187" xlink:href="/images/scenes/winder2.png"/>
 </defs>
 </svg>

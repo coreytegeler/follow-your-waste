@@ -18,8 +18,8 @@
 <clipPath id="end-metal_clip0">
 <rect width="1440" height="821" fill="white"/>
 </clipPath>
-<image id="end-metal_image0" width="1440" height="427" xlink:href="images/scenes/end-metal0.png"/>
-<image id="end-metal_image1" data-name="end-metal_.png" width="1378" height="512" xlink:href="images/scenes/end-metal1.png"/>
-<image id="end-metal_image2" data-name="end-metal_.png" width="496" height="706" xlink:href="images/scenes/end-metal2.png"/>
+<image id="end-metal_image0" width="1440" height="427" xlink:href="/images/scenes/end-metal0.png"/>
+<image id="end-metal_image1" data-name="end-metal_.png" width="1378" height="512" xlink:href="/images/scenes/end-metal1.png"/>
+<image id="end-metal_image2" data-name="end-metal_.png" width="496" height="706" xlink:href="/images/scenes/end-metal2.png"/>
 </defs>
 </svg>

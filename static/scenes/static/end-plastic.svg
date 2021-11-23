@@ -6,6 +6,6 @@
 <pattern id="end-plastic_pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#end-plastic_image0" transform="translate(0 -0.0164975) scale(0.0005 0.000815308)"/>
 </pattern>
-<image id="end-plastic_image0" width="2000" height="1267" xlink:href="images/scenes/end-plastic0.png"/>
+<image id="end-plastic_image0" width="2000" height="1267" xlink:href="/images/scenes/end-plastic0.png"/>
 </defs>
 </svg>
