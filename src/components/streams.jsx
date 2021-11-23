@@ -9,23 +9,6 @@ export default function Streams({ text, data }) {
 		<div id="streams-view" className="view" aria-hidden="true">
 			<div className="view-inner">
 
-				{/*<div
-					role="menu"
-					id="restart-menu"
-					className="mobile-hidden"
-					aria-label={"Select a new item"}>
-					<div
-						role="button"
-						id="restart-button"
-						className="restart-button">
-						<div className="tooltip">
-							<div className="tooltip-inner">
-								Choose a new item
-							</div>
-						</div>
-					</div>
-				</div>*/}
-
 				{ streams.map((stream, i) => {
 					const streamText = text[stream],
 								streamData = data[stream];
@@ -126,7 +109,7 @@ export default function Streams({ text, data }) {
 										<div className="chyron-inner">
 											<div className="portrait">
 												<img
-													src={withPrefix(`images/workers/${stream}.png`)}
+													src={withPrefix(`images/worker-${stream}.png`)}
 													alt="" />
 											</div>
 											<div className="captions">
@@ -154,6 +137,7 @@ export default function Streams({ text, data }) {
 																		data-vocab={vocab}
 																		tabIndex={-1}
 																		key={l}>
+																		<div className="factoid-tab"></div>
 																		<div className="factoid-inner">
 																			<p>
 																				{vocab ? (

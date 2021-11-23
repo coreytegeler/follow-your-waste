@@ -5,31 +5,15 @@ export default function Alerts({ text }) {
 	return(
 		<div id="alerts-view" className="view" aria-hidden="true">
 
-			<audio
-				data-type="voice"
-				preload="auto"
-				controls={false}
-				aria-hidden={true}>
-				<source
-					src=""
-					type="audio/wav" />
-				<track
-					src=""
-					srcLang="en"
-					kind="captions" />
-			</audio>
-
 
 			<div className="view-inner">
-
 
 				{/*******Select intro*******/}
 				<div
 					role="dialog"
 					className="alert big"
 					id="alert-select-intro"
-					aria-hidden="true"
-					data-audio={withPrefix(`audio/misc/desc.wav`)}>
+					aria-hidden="true">
 					<div className="message" id="message-select-intro">
 						<div className="portrait">
 							<img
@@ -50,17 +34,27 @@ export default function Alerts({ text }) {
 							{text.system.im_ready}
 						</button>
 					</div>
+					<audio
+						data-type="voice"
+						preload="auto"
+						controls={false}
+						aria-hidden={true}>
+						<source
+							src={withPrefix(`audio/misc/desc.wav`)}
+							type="audio/wav" />
+						<track
+							src=""
+							srcLang="en"
+							kind="captions" />
+					</audio>
 				</div>
 
-
-
-			{/******* Not trash *******/}
+				{/******* Not trash *******/}
 				<div
 					role="dialog"
 					className="alert"
 				  id="alert-not-trash"
-					aria-hidden="true"
-					data-audio={withPrefix(`audio/misc/not-trash.wav`)}>
+					aria-hidden="true">
 					<div className="message has-portrait" id="message-not-trash">
 						<p>{text.system.select_not_trash}</p>
 					</div>
@@ -80,6 +74,19 @@ export default function Alerts({ text }) {
 							{text.system.try_again}
 						</button>
 					</div>
+					<audio
+						data-type="voice"
+						preload="auto"
+						controls={false}
+						aria-hidden={true}>
+						<source
+							src={withPrefix(`audio/misc/not-trash.wav`)}
+							type="audio/wav" />
+						<track
+							src=""
+							srcLang="en"
+							kind="captions" />
+					</audio>
 				</div>
 
 				{/******* Wrong recycle *******/}
@@ -87,8 +94,7 @@ export default function Alerts({ text }) {
 					role="dialog"
 					className="alert"
 					id="alert-wrong-recycle"
-					aria-hidden="true"
-					data-audio={withPrefix(`audio/misc/wrong-recycle.wav`)}>
+					aria-hidden="true">
 					<div className="message has-portrait" id="message-wrong-recycle">
 						<p>{text.system.select_wrong_recycle}</p>
 					</div>
@@ -107,6 +113,19 @@ export default function Alerts({ text }) {
 							{text.system.try_again}
 						</button>
 					</div>
+					<audio
+						data-type="voice"
+						preload="auto"
+						controls={false}
+						aria-hidden={true}>
+						<source
+							src={withPrefix(`audio/misc/wrong-recycle.wav`)}
+							type="audio/wav" />
+						<track
+							src=""
+							srcLang="en"
+							kind="captions" />
+					</audio>
 				</div>
 
 				{/******* Not recycle *******/}
@@ -114,8 +133,7 @@ export default function Alerts({ text }) {
 					role="dialog"
 					className="alert"
 					id="alert-not-recycle"
-					aria-hidden="true"
-					data-audio={withPrefix(`audio/misc/not-recycle.wav`)}>
+					aria-hidden="true">
 					<div className="message has-portrait" id="message-not-recycle">
 						<p>{text.system.select_not_recycle}</p>
 					</div>
@@ -135,6 +153,19 @@ export default function Alerts({ text }) {
 							{text.system.try_again}
 						</button>
 					</div>
+					<audio
+						data-type="voice"
+						preload="auto"
+						controls={false}
+						aria-hidden={true}>
+						<source
+							src={withPrefix(`audio/misc/not-recycle.wav`)}
+							type="audio/wav" />
+						<track
+							src=""
+							srcLang="en"
+							kind="captions" />
+					</audio>
 				</div>
 
 				{/******* Correct bin *******/}
@@ -142,8 +173,7 @@ export default function Alerts({ text }) {
 					role="dialog"
 					className="alert"
 					id="alert-correct-bin"
-					aria-hidden="true"
-					data-audio={withPrefix(`audio/misc/correct-bin.wav`)}>
+					aria-hidden="true">
 					<div className="message has-portrait" id="message-correct-bin">
 						<p>{text.system.select_correct_bin}</p>
 					</div>
@@ -168,6 +198,19 @@ export default function Alerts({ text }) {
 							{text.system.lets_go}
 						</button>
 					</div>
+					<audio
+						data-type="voice"
+						preload="auto"
+						controls={false}
+						aria-hidden={true}>
+						<source
+							src={withPrefix(`audio/misc/correct-bin.wav`)}
+							type="audio/wav" />
+						<track
+							src=""
+							srcLang="en"
+							kind="captions" />
+					</audio>
 				</div>
 
 				{/*******Streams intro*******/}
@@ -177,9 +220,7 @@ export default function Alerts({ text }) {
 					id="alert-streams-intro"
 					aria-hidden="true">
 					<div className="message" id="message-streams-intro">
-						
 						<div id="help-grid">
-
 							<div className="row">
 								<div className="col">
 									<div className="restart-button"></div>
@@ -188,7 +229,6 @@ export default function Alerts({ text }) {
 									{text.system.help_restart}
 								</div>
 							</div>
-
 							<div className="row">
 								<div className="col">
 									<div className="progress">
@@ -204,7 +244,6 @@ export default function Alerts({ text }) {
 									{text.system.help_progress}
 								</div>
 							</div>
-
 							<div className="row">
 								<div className="col">
 									<div className="factoid-tab"></div>
@@ -213,7 +252,6 @@ export default function Alerts({ text }) {
 									{text.system.help_factoid}
 								</div>
 							</div>
-
 							<div className="row">
 								<div className="col">
 									<div className="arrow" data-dir="prev"></div>
@@ -223,8 +261,6 @@ export default function Alerts({ text }) {
 									{text.system.help_arrows}
 								</div>
 							</div>
-
-
 							<div className="row">
 								<div className="col">
 									<div className="help-audio-buttons">
@@ -240,9 +276,7 @@ export default function Alerts({ text }) {
 									{text.system.help_audio}
 								</div>
 							</div>
-
 						</div>
-
 					</div>
 					<div
 						role="menu"
@@ -265,9 +299,7 @@ export default function Alerts({ text }) {
 					<div className="message" id="message-streams-end">
 						<div className="row">
 							<div className="col">
-
 								<img id="selected-item" alt="" />
-
 								<div
 									role="menu"
 									className="alert-buttons"
@@ -279,17 +311,14 @@ export default function Alerts({ text }) {
 										{text.system.final_restart}
 									</button>
 								</div>
-
 							</div>
 							<div className="col">
-
 								<h2>
 									{text.system.final_title}
 								</h2>
 								<p>
 									{text.system.final_statement}
 								</p>
-
 								<h3 id="message-menu-resources">
 									{text.system.final_resources}
 								</h3>
@@ -324,12 +353,10 @@ export default function Alerts({ text }) {
 										</a>
 									</li>
 								</ul>
-
 							</div>
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	);

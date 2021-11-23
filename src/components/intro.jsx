@@ -1,4 +1,5 @@
 import React from "react";
+import { withPrefix } from "gatsby";
 
 export default function Intro({ text }) {
   return (
@@ -16,7 +17,7 @@ export default function Intro({ text }) {
           </div>
           <div id="intro-bottom">
             <div id="loading">
-              <img src="images/loading.png" alt="" />
+              <img src={withPrefix("images/loading.png")} alt="" />
               <span aria-hidden="true">
                 {text.system.loading}
               </span>

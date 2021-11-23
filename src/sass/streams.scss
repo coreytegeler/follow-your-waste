@@ -470,105 +470,34 @@ audio {
 	}
 }
 
-$light-amt: 10%;
-$lighter-amt: 30%;
+$streams: (
+	"landfill": ($pink, $pink-light),
+	"metal": ($blue, $blue-light), 
+	"glass": ($orange, $orange-light), 
+	"paper": ($green, $green-light), 
+	"plastic": ($red, $red-light), 
+	"organics": ($teal, $teal-light)
+);
 
-.stream[data-slug="metal"] {
-	.vocab {
-		color: lighten($blue, $lighter-amt);
-		border-color: $blue;
-	}
-	.factoid .vocab {
-		color: lighten($blue, $lighter-amt);
-	}
-	.text,
-	.chyron-inner,
-	.factoid-inner,
-	.factoid-inner::before,
-	.factoid-tab::before {
-		border-color: $blue;
-	}
-}
-.stream[data-slug="glass"] {
-	.vocab {
-		color: lighten($orange, $light-amt);
-		border-color: $orange;
-	}
-	.factoid .vocab {
-		color: lighten($orange, $light-amt);
-	}
-	.text,
-	.chyron-inner,
-	.factoid-inner,
-	.factoid-inner::before,
-	.factoid-tab::before {
-		border-color: $orange;
+@each $stream, $colors in $streams {
+	.stream[data-slug="#{$stream}"] {
+		.vocab {
+			color: nth($colors, 2);
+			border-color: nth($colors, 1);
+		}
+		.factoid .vocab {
+			color: nth($colors, 2);
+		}
+		.text,
+		.chyron-inner,
+		.factoid-inner,
+		.factoid-inner::before,
+		.factoid-tab::before {
+			border-color: nth($colors, 1);
+		}
 	}
 }
-.stream[data-slug="plastic"] {
-	.vocab {
-		color: lighten($red, $lighter-amt);
-		border-color: $red;
-	}
-	.factoid .vocab {
-		color: lighten($red, $lighter-amt);
-	}
-	.text,
-	.chyron-inner,
-	.factoid-inner,
-	.factoid-inner::before,
-	.factoid-tab::before {
-		border-color: $red;
-	}
-}
-.stream[data-slug="paper"] {
-	.vocab {
-		color: lighten($green, $light-amt);
-		border-color: $green;
-	}
-	.factoid .vocab {
-		color: lighten($green, $light-amt);
-	}
-	.text,
-	.chyron-inner,
-	.factoid-inner,
-	.factoid-inner::before,
-	.factoid-tab::before {
-		border-color: $green;
-	}
-}
-.stream[data-slug="landfill"] {
-	.vocab {
-		color: lighten($pink, $light-amt);
-		border-color: $pink;
-	}
-	.factoid .vocab {
-		color: lighten($pink, $light-amt);
-	}
-	.text,
-	.chyron-inner,
-	.factoid-inner,
-	.factoid-inner::before,
-	.factoid-tab::before {
-		border-color: $pink;
-	}
-}
-.stream[data-slug="organics"] {
-	.vocab {
-		color: lighten($teal, $light-amt);
-		border-color: $teal;
-	}
-	.factoid .vocab {
-		color: lighten($teal, $light-amt);
-	}
-	.text,
-	.chyron-inner,
-	.factoid-inner,
-	.factoid-inner::before,
-	.factoid-tab::before {
-		border-color: $teal;
-	}
-}
+
 ////////////////////////////////////
 ///////////// FACTOIDS /////////////
 ////////////////////////////////////
@@ -607,8 +536,11 @@ $lighter-amt: 30%;
 		}
 	}
 	.caption & {
-		margin: 20px 0 0 0;
-    clear: both;
+		@include lg-width {
+			position: relative !important;
+			margin: 20px 0 0 0;
+		  clear: both;
+		}
 	}
 	&:focus {
 		outline: none;
@@ -664,6 +596,19 @@ $lighter-amt: 30%;
 	}
 	.factoid.open &::after {
 		transform: rotate(45deg);
+	}
+	.caption & {
+		width: 30px;
+		height: 30px;
+		position: relative;
+		left: 0px;
+		top: 0px;
+		margin: 20px 10px 0 15px;
+    float: left;
+    pointer-events: none;
+		&::before {
+			display: none;
+		}
 	}
 }
 .factoid-inner {

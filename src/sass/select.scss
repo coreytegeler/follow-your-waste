@@ -180,16 +180,22 @@ $bins: ("paper", "mgp", "landfill", "organics");
 	cursor: pointer;
 	&:not(.show) {
 		transform: translateY(-100vh);
-	}
-	img {
-		width: 100%;
-		height: auto;
+		@include lg-width {
+			transform: unset;
+		}
 	}
 	&.setting {
 		transition: all 1000ms $ease;
 		&.show {
 			transition-duration: 800ms;	
 		}
+		@include lg-width {
+			transition: unset;
+		}
+	}
+	img {
+		width: 100%;
+		height: auto;
 	}
 	body:not(.alerts) &.hovering,
 	&.is-dragging,

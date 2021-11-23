@@ -3,8 +3,7 @@ import { withPrefix } from "gatsby";
 
 export default function Select({ text, data }) {
 	
-	const streams = ["organics", "metal", "glass", "paper", "plastic", "landfill"],
-				bins = ["paper", "mgp", "landfill", "organics"];
+	const bins = ["paper", "mgp", "landfill", "organics"];
 
 	return (
 		<div id="select-view" className="view" aria-hidden="true">
@@ -87,68 +86,6 @@ export default function Select({ text, data }) {
 						)
 					})}
 				</div>
-
-				{/*<div
-					role="dialog"
-					className="screen-hidden mobile-show"
-					id="alert-select">
-					<div className="message">
-						<div
-							id="message-menu-select"
-							aria-hidden="true">
-							<p>
-								{text.system.select_intro}
-							</p>
-							<p>
-								{text.system.select_prompt_alt}
-							</p>
-						</div>
-					</div>*/}
-
-					{/*<div
-						role="menu"
-						id="menu-select"
-						tabIndex={-1}
-						aria-labelledby="message-menu-select">*/}
-						{/*streams.map((streamSlug, i) => {
-							let imgFilename;
-							switch(streamSlug) {
-								case "landfill":
-									imgFilename = "chip-bag";
-									break;
-								case "metal":
-									imgFilename = "aluminum-foil";
-									break;
-								case "glass":
-									imgFilename = "glass-jar";
-									break;
-								case "plastic":
-									imgFilename = "plastic-bottle";
-									break;
-								case "paper":
-									imgFilename = "newspaper";
-									break;
-								case "organics":
-									imgFilename = "banana";
-									break;
-								default:
-									break;
-							}
-							return (
-								<button
-									role="menuitem"
-									data-stream={streamSlug}
-									aria-controls="menu-select"
-									key={i}>
-									<img
-										src={withPrefix(`images/items/${imgFilename}.png`)}
-										alt="" />
-									{streamSlug}
-								</button>
-							)
-						})*/}
-					{/*</div>*/}
-				{/*</div>*/}
 
 			</div>
 		</div>

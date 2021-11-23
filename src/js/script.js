@@ -19,7 +19,6 @@ const initSite = () => {
 				itemElems = document.querySelectorAll(".item"),
 				selectedItem = document.querySelector("#selected-item"),
 				binElems = document.querySelectorAll("#bins .bin"),
-				alertsAudioElem = document.querySelector("#alerts-view audio"),
 				streamsView = document.querySelector("#streams-view"),
 				streamElems = document.querySelectorAll(".stream"),
 				alertsView = document.querySelector("#alerts-view"),
@@ -159,6 +158,7 @@ const initSite = () => {
 	};
 
 	const pauseAudio = (elem) => {
+		if(!elem) return
 		const playPromise = elem.play();
 
 		if(playPromise !== undefined) {
@@ -176,6 +176,7 @@ const initSite = () => {
 	};
 
 	const muteAudio = (elem) => {
+		if(!elem) return
 		const type = elem.dataset.type;
 		$(elem).animate({
 			volume: 0
@@ -204,18 +205,13 @@ const initSite = () => {
 		body.classList.toggle("mute");
 		const currSceneObj = globals.scene,
 					currAlertAudioElem = document.querySelector(".alert.show audio");
-
 		if(currSceneObj) {
-			const currVoiceAudioElem = currSceneObj.voiceover,
-						currEnvironAudioElem = currSceneObj.environ;
-
-			toggleAudio(currVoiceAudioElem);
-			toggleAudio(currEnvironAudioElem);
+			toggleAudio(currSceneObj.voiceover);
+			toggleAudio(currSceneObj.environ);
 		}
 		if(currAlertAudioElem) {
 			toggleAudio(currAlertAudioElem);
 		}
-
 		volTogBttn.blur();
 	}
 
@@ -331,7 +327,7 @@ const initSite = () => {
 		const alertElem = document.querySelector(`#alert-${alertSlug}`),
 					okayBttnElem = alertElem.querySelector(".okay"),
 					cancelBttnElem = alertElem.querySelector(".cancel"),
-					audioSrc = alertElem.getAttribute("data-audio");
+					audioElem = alertElem.querySelector("audio");
 
 		if("activeElement" in document) {
 			document.activeElement.blur();
@@ -341,9 +337,8 @@ const initSite = () => {
 		body.classList.add("alerts");
 		body.setAttribute("aria-hidden", false);
 
-		if(audioSrc) {
-			alertsAudioElem.src = audioSrc;
-			playAudio(alertsAudioElem);
+		if(audioElem) {
+			playAudio(audioElem);
 		}
 
 		if(okayBttnElem) {
@@ -383,9 +378,10 @@ const initSite = () => {
 	};
 
 	const closeAlert = () => {
-		const alertElem = document.querySelector(".alert.show");
+		const alertElem = document.querySelector(".alert.show"),
+					audioElem = alertElem.querySelector("audio");
 		body.classList.remove("alerts");
-		pauseAudio(alertsAudioElem);
+		pauseAudio(audioElem);
 
 		setTimeout(() => {
 			alertElem.classList.remove("show");
