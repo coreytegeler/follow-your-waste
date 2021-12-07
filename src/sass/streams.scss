@@ -256,11 +256,11 @@ audio {
 		height: 200px;
 		border-width: 3px 0 0 0;
 		border-radius: 0;
+		overflow-y: scroll;
+		-webkit-overflow-scroll: touch;
 	}
 	@include sm-width {
 		height: 100%;
-		overflow-y: scroll;
-		-webkit-overflow-scroll: touch;
 	}
 	.portrait {
 		position: absolute;
@@ -276,12 +276,6 @@ audio {
 			margin: auto;
 		}
 		@include md-width {
-			width: 80px;
-			height: 90px;
-			top: 15px;
-			left: 15px;
-		}
-		@include sm-width {
 			width: 70px;
 			height: 80px;
 			top: 35px;
@@ -294,8 +288,6 @@ audio {
 	min-height: 120px;
 	@include md-width {
 		clear: both;
-	}
-	@include sm-width {
 		height: unset;
 	}
 	.caption {
@@ -304,39 +296,29 @@ audio {
 		overflow-y: auto;
 		font-weight: 500;
 		outline: none;
-		@include sm-width {
-			overflow-y: hidden;
-		}
 		@include md-width {
-			height: 100%;
 			padding: 20px 15px 20px 15px;
+			overflow-y: hidden;
 		}
 		.text {
 			@include lg-text;
 			float: right;
 			width: 100%;
-			// max-width: #{$md-width - $portrait-width};
 			@include md-width {
 				width: 100%;
 				max-width: unset;
-				&::before {
-					content: "";
-					width: 90px;
-					height: 80px;
-					display: block;
-					float: left;
-				}
-			}
-			@include sm-width {
 				min-height: 120px;
-				padding: 20px;
+				padding: 20px 55px 20px 20px;
 				margin-bottom: 15px;
 				background-color: $darken;
 				border: 3px solid;
 				border-radius: 30px;
 				&::before {
+					content: "";
 					width: 75px;
 					height: 80px;
+					display: block;
+					float: left;
 				}
 			}
 		}
@@ -346,6 +328,9 @@ audio {
 		.vocab.clickable {
 			cursor: pointer;
 			transition: color 300ms $ease;
+			@include md-width {
+				cursor: text;
+			}
 		}
 		&:not(.show) {
 			display: none;
@@ -365,13 +350,8 @@ audio {
 		background-position-y: bottom;
 	}
 	@include md-width {
-		width: 40px;
-		height: 40px;
-		margin: auto 10px;
-		position: static;
-	}
-	@include sm-width {
-		display: none;
+		top: 45px;
+    right: 30px;
 	}
 }
 
@@ -536,7 +516,9 @@ $streams: (
 		}
 	}
 	.caption & {
-		@include lg-width {
+		display: none;
+		@include md-width {
+			display: block;
 			position: relative !important;
 			margin: 20px 0 0 0;
 		  clear: both;
@@ -586,14 +568,6 @@ $streams: (
 	&:hover::after {
 		opacity: 1;
 	}
-	.factoid:not(.open) &:hover::before,
-	.factoid:not(.open):focus &::before {
-		// width: 60px;
-	}
-	.factoid:not(.open) &:hover::after,
-	.factoid:not(.open):focus &::after {
-		// right: 15px;
-	}
 	.factoid.open &::after {
 		transform: rotate(45deg);
 	}
@@ -603,7 +577,7 @@ $streams: (
 		position: relative;
 		left: 0px;
 		top: 0px;
-		margin: 20px 10px 0 15px;
+		margin: 14px 10px 0 15px;
     float: left;
     pointer-events: none;
 		&::before {
@@ -650,7 +624,7 @@ $streams: (
     top: 60px;
     border-left: solid 3px;
     border-radius: 0 0 0 20px;
-    @include sm-width {
+    @include md-width {
     	display: none;
     }
 	}

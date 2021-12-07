@@ -132,7 +132,7 @@ export default function Streams({ text, data }) {
 																			fact = sceneText["fact" + l];
 																return fact ? (
 																	<div
-																		className="factoid mobile-show"
+																		className="factoid"
 																		data-index={l}
 																		data-vocab={vocab}
 																		tabIndex={-1}

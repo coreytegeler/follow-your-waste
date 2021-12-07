@@ -37,19 +37,15 @@ const initSite = () => {
 					plastic: "Plastic",
 					organics: "Organics"
 				},
-				fadeInDur = {
+				FADE_IN_DUR = {
 					voice: 50,
 					environ: 1000
 				},
-				fadeOutDur = {
-					voice: 500,
-					environ: 1000
-				},
-				volMax = {
+				VOL_MAX = {
 					voice: 1,
 					environ: .75
 				},
-				packeryDur = 300;
+				ITEMS_DUR = 300;
 
 	window.onresize = () => {
 		const size = getSize();
@@ -127,7 +123,6 @@ const initSite = () => {
 					currVoiceAudioElem = currStreamObj.elem.querySelector(".caption.show audio");
 					currEnvironAudioElem = document.querySelector(`audio[data-environ="${currEnviron}"]`);
 					body.classList.toggle("mute");
-
 					toggleAudio(currVoiceAudioElem);
 					toggleAudio(currEnvironAudioElem);
 				}
@@ -138,62 +133,54 @@ const initSite = () => {
 	};
 
 	const playAudio = (elem) => {
-		const type = elem.dataset.type;;
-
+		if(!elem) return;
 		$(elem).prop("volume", 0);
 		elem.currentTime = 0;
-
 		const playPromise = elem.play();
-
 		if(playPromise !== undefined) {
 			playPromise.then(() => {
-				if(body.classList.contains("mute")) return;
-				$(elem).animate({
-					volume: volMax[type]
-				}, fadeInDur[type]);
+				turnUpAudio(elem);
 			}).catch((error) => {
 				console.warn("On play:", error);
+				turnUpAudio(elem);
 			});
+		} else {
+			turnUpAudio(elem);
 		}
 	};
 
 	const pauseAudio = (elem) => {
-		if(!elem) return
+		if(!elem) return;
 		const playPromise = elem.play();
-
 		if(playPromise !== undefined) {
 			playPromise.then(() => {
-				$(elem).animate({
-					volume: 0
-				}, 100, (e) => {
-					elem.pause();
-					elem.currentTime = 0;
-				});
+				turnDownAudio(elem, true);
 			}).catch((error) => {
 				console.warn("On pause:", error);
+				turnDownAudio(elem, true);
 			});
+		} else {
+			turnDownAudio(elem, true);
 		}
 	};
 
-	const muteAudio = (elem) => {
-		if(!elem) return
+	const turnUpAudio = (elem) => {
 		const type = elem.dataset.type;
 		$(elem).animate({
-			volume: 0
-		}, fadeOutDur[type]);
-		volTogBttn.setAttribute("aria-pressed", false);
+			volume: body.classList.contains("mute") ? 0 : VOL_MAX[type]
+		}, FADE_IN_DUR[type]);
 	};
 
-	const unmuteAudio = (elem) => {
-		if(body.classList.contains("mute")) return;
-		const type = elem.dataset.type;
+	const turnDownAudio = (elem, pause) => {
 		$(elem).animate({
-			volume: volMax[type]
-		}, fadeInDur[type]);
-		volTogBttn.setAttribute("aria-pressed", false);
+			volume: 0
+		}, 100, (e) => {
+			if(pause) elem.pause();
+		});
 	};
 
 	const toggleAudio = (elem) => {
+		if(!elem) return;
 		if(body.classList.contains("mute")) {
 			muteAudio(elem);
 		} else {
@@ -201,10 +188,22 @@ const initSite = () => {
 		}
 	};
 
+	const muteAudio = (elem) => {
+		if(!elem) return;
+		turnDownAudio(elem);
+		volTogBttn.setAttribute("aria-pressed", false);
+	};
+
+	const unmuteAudio = (elem) => {
+		if(!elem) return;
+		turnUpAudio(elem);
+		volTogBttn.setAttribute("aria-pressed", false);
+	};
+
 	const toggleVolumeBttn = () => {
 		body.classList.toggle("mute");
 		const currSceneObj = globals.scene,
-					currAlertAudioElem = document.querySelector(".alert.show audio");
+					currAlertAudioElem = alertsView.querySelector(".alert.show audio");
 		if(currSceneObj) {
 			toggleAudio(currSceneObj.voiceover);
 			toggleAudio(currSceneObj.environ);
@@ -406,7 +405,7 @@ const initSite = () => {
 			itemsWrapPackery = new Packery(itemsWrap, {
 				itemSelector: ".item",
 				gutter: 10,
-				transitionDuration: packeryDur,
+				transitionDuration: ITEMS_DUR,
 				initLayout: false,
 				resize: true,
 				stamp: ".stamp"
@@ -416,7 +415,7 @@ const initSite = () => {
 		} else {
 			itemsWrapPackery.options.transitionDuration = 0;
 			itemsWrapPackery.layout();
-			itemsWrapPackery.options.transitionDuration = packeryDur;
+			itemsWrapPackery.options.transitionDuration = ITEMS_DUR;
 		}
 	};
 
@@ -739,14 +738,6 @@ const initSite = () => {
 			const self = this;
 			toggleSelectElems(false, () => {
 				selectView.classList.remove("show");
-				// if(!streamIntrod && window.innerWidth >= 640) {
-				// 	streamIntrod = true;
-				// 	openAlert("streams-intro", () => {
-				// 		self.startStreaming();
-				// 	});
-				// } else {
-				// 	self.startStreaming();
-				// }
 				self.startStreaming();
 			});
 		}
@@ -754,14 +745,16 @@ const initSite = () => {
 		loadAssets() {
 			const self = this,
 						sceneElems = this.elem.querySelectorAll(".scene:not(.loaded)");
-			sceneElems.forEach((sceneElem) => {
+			sceneElems.forEach((sceneElem, i) => {
 				const sceneSlug = sceneElem.dataset.scene,
 							sceneObj = self.scenes[sceneSlug];
-				if(sceneObj.elem.dataset.animated === "true") {
-					sceneObj.getAnimation();
-				} else {
-					sceneObj.getSvg();
-				}
+				setTimeout(() => {
+					if(sceneObj.elem.dataset.animated === "true") {
+						sceneObj.getAnimation();
+					} else {
+						sceneObj.getSvg();
+					}
+				}, 100 * i);
 			});
 		}
 
@@ -982,7 +975,6 @@ const initSite = () => {
 				self.elem.classList.add("loaded");
 				animation.goToAndPlay(0);
 			});
-
 
 			this.animation = animation;
 			this.setUpScene();
