@@ -1,7 +1,7 @@
 import React from "react";
 import { withPrefix } from "gatsby";
 
-export default function Select({ text, data }) {
+export default function Select({ text, data, lang }) {
 	
 	const bins = ["paper", "mgp", "landfill", "organics"];
 
@@ -59,7 +59,7 @@ export default function Select({ text, data }) {
 								key={i}>
 								<img
 									className="bin-front"
-									src={withPrefix(`images/bin-${binSlug}-front.png`)}
+									src={withPrefix(`images/bin-${binSlug}-front-${lang}.png`)}
 									alt="" />
 								<img
 									className="bin-lid"

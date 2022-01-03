@@ -79,7 +79,7 @@ const App = ({ pageContext }) => {
 
 			<main id="main">
 				<Intro text={text} />
-				<Select text={text} data={data} />
+				<Select text={text} data={data} lang={lang} />
 				<Streams text={text} data={data} />
 				<Alerts text={text} />
 			</main>
