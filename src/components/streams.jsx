@@ -162,7 +162,6 @@ export default function Streams({ text, data }) {
 																	type="audio/wav" />
 																<track
 																	src=""
-																	srcLang="en"
 																	kind="captions" />
 															</audio>
 														</div>

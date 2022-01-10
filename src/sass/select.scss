@@ -90,12 +90,12 @@ img.bin-lid {
 	.organics & {
 		width: 232px;
 		left: 2px;
-		bottom: 122px;
+		bottom: 114px;
 		transform-origin: right bottom;
 		@include md-width {
 			width: 190px;
 			left: 0px;
-			bottom: 100px;
+			bottom: 93px;
 		}
 	}
 	@include md-width {
@@ -104,6 +104,9 @@ img.bin-lid {
 }
 img.bin-back {
 	bottom: 45%;
+	.mgp & {
+		margin-bottom: -1px;
+	}
 	@include md-width {
 		bottom: 97px;
 	}
