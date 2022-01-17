@@ -156,14 +156,9 @@ export default function Streams({ text, data }) {
 																data-type="voice"
 																preload="none"
 																controls={false}
-																aria-hidden={true}>
-																<source
-																	src={withPrefix(`audio/${stream}/${sceneData.slug}.wav`)}
-																	type="audio/wav" />
-																<track
-																	src=""
-																	kind="captions" />
-															</audio>
+																aria-hidden={true}
+																src={withPrefix(`audio/${stream}/${sceneData.slug}.wav`)}
+																type="audio/wav" />
 														</div>
 													);
 												})}
@@ -209,12 +204,10 @@ export default function Streams({ text, data }) {
 						data-environ={environ}
 						preload="auto"
 						controls={false}
-						loop={true}
-						key={i}>
-						<source
-							src={withPrefix(`audio/environs/${environ}.wav`)}
-							type="audio/wav" />
-					</audio>
+						aria-hidden={true}
+						key={i}
+						src={withPrefix(`audio/environs/${environ}.wav`)}
+						type="audio/wav" />
 				);
 			}) }
 

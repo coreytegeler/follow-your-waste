@@ -84,6 +84,23 @@ const App = ({ pageContext }) => {
 				<Alerts text={text} />
 			</main>
 
+			<audio
+				id="voice-audio"
+				data-type="voice"
+				preload="none"
+				controls={false}
+				aria-hidden={true}>
+			</audio>
+
+			<audio
+				id="environ-audio"
+				data-type="environ"
+				loop={true}
+				preload="none"
+				controls={false}
+				aria-hidden={true}>
+			</audio>
+
 		</React.Fragment>
 	);
 };

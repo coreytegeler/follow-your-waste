@@ -22,6 +22,10 @@ const initSite = () => {
 				streamsView = document.querySelector("#streams-view"),
 				streamElems = document.querySelectorAll(".stream"),
 				alertsView = document.querySelector("#alerts-view"),
+				audioElems = {
+					voice: document.querySelector("#voice-audio"),
+					environ: document.querySelector("#environ-audio"),
+				},
 				globals = {
 					scene: null,
 					stream: null
@@ -133,7 +137,10 @@ const initSite = () => {
 	};
 
 	const playAudio = (elem) => {
-		if(!elem) return;
+		const src = elem.getAttribute("src"),
+					type = elem.dataset.type;
+		elem = audioElems[type];
+		elem.setAttribute("src", src);
 		$(elem).prop("volume", 0);
 		elem.currentTime = 0;
 		const playPromise = elem.play();
@@ -147,21 +154,26 @@ const initSite = () => {
 		} else {
 			turnUpAudio(elem);
 		}
+		body.classList.add("playing");
 	};
 
-	const pauseAudio = (elem) => {
-		if(!elem) return;
+	const pauseAudio = (elem, next) => {
+		const src = elem.getAttribute("src"),
+					type = elem.dataset.type;
+		elem = audioElems[type];
+		elem.setAttribute("src", src);
 		const playPromise = elem.play();
 		if(playPromise !== undefined) {
 			playPromise.then(() => {
-				turnDownAudio(elem, true);
+				turnDownAudio(elem, true, next);
 			}).catch((error) => {
 				console.warn("On pause:", error);
-				turnDownAudio(elem, true);
+				turnDownAudio(elem, true, next);
 			});
 		} else {
-			turnDownAudio(elem, true);
+			turnDownAudio(elem, true, next);
 		}
+		body.classList.remove("playing");
 	};
 
 	const turnUpAudio = (elem) => {
@@ -171,15 +183,25 @@ const initSite = () => {
 		}, FADE_IN_DUR[type]);
 	};
 
-	const turnDownAudio = (elem, pause) => {
+	const turnDownAudio = (elem, pause, next) => {
+		const type = elem.dataset.type;
 		$(elem).animate({
 			volume: 0
 		}, 100, (e) => {
-			if(pause) elem.pause();
+			if(pause) {
+				elem.pause()
+			}
+			if(next) {
+				playAudio(next);
+			}
 		});
 	};
 
 	const toggleAudio = (elem) => {
+		const src = elem.getAttribute("src"),
+					type = elem.dataset.type;
+		elem = audioElems[type];
+		elem.setAttribute("src", src);
 		if(!elem) return;
 		if(body.classList.contains("mute")) {
 			muteAudio(elem);
@@ -189,12 +211,20 @@ const initSite = () => {
 	};
 
 	const muteAudio = (elem) => {
+		const src = elem.getAttribute("src"),
+					type = elem.dataset.type;
+		elem = audioElems[type];
+		elem.setAttribute("src", src);
 		if(!elem) return;
 		turnDownAudio(elem);
 		volTogBttn.setAttribute("aria-pressed", false);
 	};
 
 	const unmuteAudio = (elem) => {
+		const src = elem.getAttribute("src"),
+					type = elem.dataset.type;
+		elem = audioElems[type];
+		elem.setAttribute("src", src);
 		if(!elem) return;
 		turnUpAudio(elem);
 		volTogBttn.setAttribute("aria-pressed", false);
@@ -380,7 +410,7 @@ const initSite = () => {
 		const alertElem = document.querySelector(".alert.show"),
 					audioElem = alertElem.querySelector("audio");
 		body.classList.remove("alerts");
-		pauseAudio(audioElem);
+		if(audioElem) pauseAudio(audioElem);
 
 		setTimeout(() => {
 			alertElem.classList.remove("show");
@@ -705,8 +735,8 @@ const initSite = () => {
 				if(body.classList.contains("playing")) {
 					body.classList.remove("mute");
 					playAudio(currVoiceAudioElem);
-					unmuteAudio(currVoiceAudioElem);
-					unmuteAudio(currEnvironAudioElem);
+					// unmuteAudio(currVoiceAudioElem);
+					// unmuteAudio(currEnvironAudioElem);
 				} else {
 					pauseAudio(currVoiceAudioElem);
 				}
@@ -882,10 +912,6 @@ const initSite = () => {
 				currCaptionElem.classList.remove("show");
 			}
 
-			if(currVoiceAudioElem) {
-				pauseAudio(currVoiceAudioElem);
-			}
-
 			if(nextSceneObj.animation) {
 				nextSceneObj.animation.goToAndPlay(0);
 			}
@@ -905,7 +931,9 @@ const initSite = () => {
 			globals.scene = nextSceneObj;
 			nextSceneObj.prepareScene();
 
-			if(nextVoiceAudioElem) {
+			if(currVoiceAudioElem) {
+				pauseAudio(currVoiceAudioElem, nextVoiceAudioElem);
+			} else if(nextVoiceAudioElem) {
 				playAudio(nextVoiceAudioElem);
 			}
 
@@ -922,7 +950,7 @@ const initSite = () => {
 			if(!nextEnviron) {
 				pauseAudio(currEnvironAudioElem);
 			} else if(currEnviron !== nextEnviron) {
-				pauseAudio(currEnvironAudioElem);
+				// pauseAudio(currEnvironAudioElem);
 				playAudio(nextEnvironAudioElem);
 			}
 		}
@@ -1004,7 +1032,8 @@ const initSite = () => {
 						sceneElem = this.elem,
 						tickElem = this.tick,
 						captionElem = this.caption,
-						voiceAudioElem = this.voiceover,
+						// voiceAudioElem = this.voiceover,
+						voiceAudioElem = audioElems.voice,
 						factoidElems = this.factoids;
 			if(tickElem) {
 				tickElem.onclick = () => {
@@ -1013,23 +1042,23 @@ const initSite = () => {
 				};
 			}
 
-			if(voiceAudioElem) {
-				voiceAudioElem.onplay = () => {
-					body.classList.add("playing");
-				};
-				voiceAudioElem.onpause = () => {
-					const caption = voiceAudioElem.parentElement;
-					if(caption.classList.contains("show")) {
-						body.classList.remove("playing");
-					}
-				};
-				voiceAudioElem.onended = () => {
-					const caption = voiceAudioElem.parentElement;
-					if(caption.classList.contains("show")) {
-						body.classList.remove("playing");
-					}
-				};
-			}
+			// if(voiceAudioElem) {
+			// 	voiceAudioElem.onplay = () => {
+			// 		body.classList.add("playing");
+			// 	};
+			// 	voiceAudioElem.onpause = () => {
+			// 		const caption = voiceAudioElem.parentElement;
+			// 		if(caption.classList.contains("show")) {
+			// 			body.classList.remove("playing");
+			// 		}
+			// 	};
+			// 	voiceAudioElem.onended = () => {
+			// 		const caption = voiceAudioElem.parentElement;
+			// 		if(caption.classList.contains("show")) {
+			// 			body.classList.remove("playing");
+			// 		}
+			// 	};
+			// }
 
 			factoidElems.forEach((factoidElem) => {
 				const tabElem = factoidElem.querySelector(".factoid-tab");

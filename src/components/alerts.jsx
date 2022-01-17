@@ -38,15 +38,9 @@ export default function Alerts({ text }) {
 						data-type="voice"
 						preload="auto"
 						controls={false}
-						aria-hidden={true}>
-						<source
-							src={withPrefix(`audio/misc/desc.wav`)}
-							type="audio/wav" />
-						<track
-							src=""
-							srcLang="en"
-							kind="captions" />
-					</audio>
+						aria-hidden={true}
+						src={withPrefix(`audio/misc/desc.wav`)}
+						type="audio/wav" />
 				</div>
 
 				{/******* Not trash *******/}
@@ -78,15 +72,9 @@ export default function Alerts({ text }) {
 						data-type="voice"
 						preload="auto"
 						controls={false}
-						aria-hidden={true}>
-						<source
-							src={withPrefix(`audio/misc/not-trash.wav`)}
-							type="audio/wav" />
-						<track
-							src=""
-							srcLang="en"
-							kind="captions" />
-					</audio>
+						aria-hidden={true}
+						src={withPrefix(`audio/misc/not-trash.wav`)}
+						type="audio/wav" />
 				</div>
 
 				{/******* Wrong recycle *******/}
@@ -117,15 +105,9 @@ export default function Alerts({ text }) {
 						data-type="voice"
 						preload="auto"
 						controls={false}
-						aria-hidden={true}>
-						<source
-							src={withPrefix(`audio/misc/wrong-recycle.wav`)}
-							type="audio/wav" />
-						<track
-							src=""
-							srcLang="en"
-							kind="captions" />
-					</audio>
+						aria-hidden={true}
+						src={withPrefix(`audio/misc/wrong-recycle.wav`)}
+						type="audio/wav" />
 				</div>
 
 				{/******* Not recycle *******/}
@@ -157,15 +139,9 @@ export default function Alerts({ text }) {
 						data-type="voice"
 						preload="auto"
 						controls={false}
-						aria-hidden={true}>
-						<source
-							src={withPrefix(`audio/misc/not-recycle.wav`)}
-							type="audio/wav" />
-						<track
-							src=""
-							srcLang="en"
-							kind="captions" />
-					</audio>
+						aria-hidden={true}
+						src={withPrefix(`audio/misc/not-recycle.wav`)}
+						type="audio/wav" />
 				</div>
 
 				{/******* Correct bin *******/}
@@ -202,15 +178,9 @@ export default function Alerts({ text }) {
 						data-type="voice"
 						preload="auto"
 						controls={false}
-						aria-hidden={true}>
-						<source
-							src={withPrefix(`audio/misc/correct-bin.wav`)}
-							type="audio/wav" />
-						<track
-							src=""
-							srcLang="en"
-							kind="captions" />
-					</audio>
+						aria-hidden={true}
+						src={withPrefix(`audio/misc/correct-bin.wav`)}
+						type="audio/wav" />
 				</div>
 
 				{/*******Streams intro*******/}
