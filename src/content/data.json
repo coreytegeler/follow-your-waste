@@ -162,7 +162,7 @@
       "orientation": "height",
       "animated": "true",
       "looped": "false",
-      "environment": "facility"
+      "environment": "traffic"
     },
     {
       "slug": "composting",
@@ -170,7 +170,7 @@
       "orientation": "width",
       "animated": "false",
       "looped": "false",
-      "environment": "facility"
+      "environment": "traffic"
     },
     {
       "slug": "organisms",
@@ -178,7 +178,7 @@
       "orientation": "height",
       "animated": "true",
       "looped": "true",
-      "environment": "facility"
+      "environment": "traffic"
     },
     {
       "slug": "curing",
@@ -186,7 +186,7 @@
       "orientation": "width",
       "animated": "true",
       "looped": "true",
-      "environment": "facility"
+      "environment": "traffic"
     },
     {
       "slug": "garden",
